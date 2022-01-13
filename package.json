@@ -1,0 +1,32 @@
+{
+  "name": "cebuliony",
+  "private": true,
+  "homepage": "https://www.cebuliony.pl/",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
+    "@chakra-ui/layout": "^1.6.0",
+    "@chakra-ui/react": "^1.7.3",
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@fontsource/comfortaa": "^4.5.1",
+    "@fontsource/work-sans": "^4.5.2",
+    "@react-three/fiber": "^7.0.24",
+    "focus-visible": "^5.2.0",
+    "framer-motion": "^4.1.17",
+    "next": "12.0.7",
+    "react": "17.0.2",
+    "react-cookie-consent": "^7.2.1",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "8.4.1",
+    "eslint-config-next": "12.0.7",
+    "eslint-plugin-react-hooks": "^4.3.0"
+  }
+}
