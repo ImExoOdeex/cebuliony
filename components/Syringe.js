@@ -11,12 +11,12 @@ import {
 } from "@chakra-ui/react";
 import Ramki from "./ramki";
 import T from "./T"
-import { ArrowRightIcon, DownloadIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, DownloadIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import Link from './Link'
 
-
-const Healsyringe = ({ delay = 0 }) => {
+const Syringetemplate = ({ delay = 0, title, icon, uses, duration, amplifier, info, crafting = 'shapeless', ingredient1, ingredient2, ingredient3, ingredient4, one, two, four, five,
+    six, eight, nine, table1 = 'Number of uses' }) => {
     const bg = useColorModeValue('#ebebeb', '#1f1f1f');
     const color = useColorModeValue('#000', '#fff');
     const res = '64px'
@@ -42,30 +42,29 @@ const Healsyringe = ({ delay = 0 }) => {
                         <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }} h={'100%'}>
                             <Flex w={{ base: '100%', md: '40%' }} textAlign={'left'}
                                 flexDir={'column'} alignItems={'center'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Healing Syringe</Heading>
+                                <Heading fontSize='25px'>{title}</Heading>
                                 <Image alt='heal syringe' mt={'10px'}
                                     style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/healsyringe.png' />
+                                    height={res} src={icon} />
                             </Flex>
                             <Flex flexDir={'column'}>
                                 <Flex w={'100%'} textAlign={'center'} alignItems="center" flexDir={'column'}>
-                                    Heal syringe gives for a few seconds very strong regeneration,
-                                    so it heals you to full in a few seconds!
+                                    {info}
                                 </Flex>
                                 <Flex mt={'10px'}>
                                     <Table variant='simple'>
                                         <Tbody>
                                             <Tr borderTop={'1px'}>
-                                                <Td borderColor={border}>Number of uses</Td>
-                                                <Td borderColor={border}>4</Td>
+                                                <Td borderColor={border}>{table1}</Td>
+                                                <Td borderColor={border}>{uses}</Td>
                                             </Tr>
                                             <Tr>
                                                 <Td borderColor={border}>duration</Td>
-                                                <Td borderColor={border}>4s</Td>
+                                                <Td borderColor={border}>{duration}</Td>
                                             </Tr>
                                             <Tr>
                                                 <Td borderColor={border}>amplifier</Td>
-                                                <Td borderColor={border}>60</Td>
+                                                <Td borderColor={border}>{amplifier}</Td>
                                             </Tr>
                                         </Tbody>
                                     </Table>
@@ -79,45 +78,59 @@ const Healsyringe = ({ delay = 0 }) => {
                             {/* lewo */}
                             <Flex w={{ base: '100%', md: '50%' }} alignItems={'center'}
                                 flexDir={'column'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Healing Syringe</Heading>
+                                <Heading fontSize='25px'>{title}</Heading>
                                 <Image alt='heal syringe' mt={'10px'}
                                     style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/healsyringe.png' />
+                                    height={res} src={icon} />
                             </Flex>
 
                             {/* Crafting */}
                             <Flex w={{ base: '100%', md: '70%' }} textAlign={'center'} flexDir={{ base: 'column', md: 'row' }}>
-                                <Flex textAlign={{ base: 'left', md: 'center' }} ml={{ base: '0%', md: '0px' }} flexDir={'column'} mb={{ base: '20px', md: '0px' }} mr={{ base: '0px', md: '20px' }} m={'auto'}>
-                                    <Text>Crafting: shapeless</Text>
-                                    <Text>Ingredients:</Text>
+                                <Flex textAlign={{ base: 'left', md: 'center' }} ml={{ base: '0%', md: '0px' }} flexDir={'column'} mb={{ base: '20px', md: '0px' }}
+                                    mr={{ base: '0px', md: '20px' }}>
+                                    <Text>Crafting: {crafting}</Text>
+                                    <Text textAlign={'left'}>Ingredients:</Text>
                                     <OrderedList margin={{ base: 'left', md: 'auto' }} ml={{ base: '16%', md: '0px' }} textAlign={'left'}>
-                                        <ListItem>Syringe</ListItem>
-                                        <ListItem>Sugar</ListItem>
-                                        <ListItem>Beerot</ListItem>
-                                        <ListItem>Poopy</ListItem>
+                                        {ingredient1}
+                                        {ingredient2}
+                                        {ingredient3}
+                                        {ingredient4}
                                     </OrderedList>
                                 </Flex>
                                 <Flex flexDirection={'row'} alignItems={'center'} justifyContent='center'>
                                     <Table border={'1px'} w={'100px'}><Tbody >
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='beetroot' w={'40px'}
-                                                src="/beetroot.png" margin={'auto'} />
-                                        </Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
                                         <Tr><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='sugar' w={'40px'}
-                                                src="/sugar.png" margin={'auto'} />    </Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='heal syringe' w={'40px'}
-                                                    src="/syringe.png" margin={'auto'} /></Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='poppy' w={'40px'}
-                                                    src="/poppy.png" margin={'auto'} />
+                                            {/* 1 miejsce */}
+                                            {one}
+
+                                        </Td><Td border={'1px'} borderColor="#808080" padding={0}>
+                                                {/* 2 miejsce */}
+                                                {two}
+
+                                            </Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
+                                        <Tr><Td border={'1px'} borderColor="#808080" padding={0}>
+                                            {/* 4 miejsce */}
+                                            {four}
+                                        </Td><Td border={'1px'} borderColor="#808080" padding={0}>
+                                                {/* 5 miejsce */}
+                                                {five}
+                                            </Td>
+                                            <Td border={'1px'} borderColor="#808080" padding={0}>
+                                                {/* 6 miejsce */}
+                                                {six}
                                             </Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
+                                        <Tr>
+                                            <Td border={'1px'} borderColor="#808080" ></Td>
+                                            <Td border={'1px'} borderColor="#808080" p={'0'}>
+                                                {/* 8 miejsce */}
+                                                {eight}
+                                            </Td>
+                                            <Td border={'1px'} borderColor="#808080" padding={0}>
+                                                {/* 9 miejsce */}
+                                                {nine}
+                                            </Td></Tr>
                                     </Tbody></Table>
-                                    <ArrowRightIcon mr={'20px'} ml={'20px'} />
+                                    <ArrowForwardIcon fontSize={'25px'} mr={'20px'} ml={'20px'} />
                                     <Table border={'1px'} w={'50px'} h={'50px'}>
                                         <Tbody>
                                             <Tr>
@@ -125,810 +138,7 @@ const Healsyringe = ({ delay = 0 }) => {
                                                     padding={'0'} borderColor="bg">
                                                     <Image style={{ imageRendering: "pixelated" }}
                                                         alt='heal syringe' w={'40px'}
-                                                        src="/healsyringe.png" margin={'auto'} />
-                                                </Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-
-
-                        </Flex>
-
-
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
-        </motion.div>
-    )
-}
-const Warriorsyringe = ({ delay = 0 }) => {
-    const bg = useColorModeValue('#ebebeb', '#1f1f1f');
-    const color = useColorModeValue('#000', '#fff');
-    const res = '64px'
-    const border = useColorModeValue('#000', '#fff')
-    const variants = {
-        hidden: { opacity: 0, x: 0, y: 20 },
-        enter: { opacity: 1, x: 0, y: 0 },
-        exit: { opacity: 0, x: 0, y: 20 }
-    }
-    return (
-        <motion.div initial="hidden"
-            animate="enter"
-            exit="exit"
-            variants={variants}
-            transition={{ duration: 0.5, delay }}>
-            <Tabs colorScheme='green' variant='enclosed' mb={'100px'}>
-                <TabList borderBottom={'0px'}>
-                    <Tab _selected={{ color: color, bg: bg }}>Info</Tab>
-                    <Tab _selected={{ color: color, bg: bg }}>Crafting</Tab>
-                </TabList>
-                <TabPanels bg={bg} borderRadius={'10px'} borderTopLeftRadius={'0px'}>
-                    <TabPanel minH={'250px'}>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }} h={'100%'}>
-                            <Flex w={{ base: '100%', md: '40%' }} textAlign={'left'}
-                                flexDir={'column'} alignItems={'center'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Warrior Syringe</Heading>
-                                <Image alt='Warrior syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/warriorsyringe.png' />
-                            </Flex>
-                            <Flex flexDir={'column'}>
-                                <Flex w={'100%'} textAlign={'center'} alignItems="center" flexDir={'column'}>
-                                    Warrior syringe gives you resistance 2, strength 1 and health boost 1 for 1 minute.
-                                </Flex>
-                                <Flex mt={'10px'}>
-                                    <Table variant='simple'>
-                                        <Tbody>
-                                            <Tr borderTop={'1px'}>
-                                                <Td borderColor={border}>Number of uses</Td>
-                                                <Td borderColor={border}>2</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>duration</Td>
-                                                <Td borderColor={border}>60s</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>amplifier</Td>
-                                                <Td borderColor={border}>resistance: 2, strength: 1</Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-                        </Flex>
-                    </TabPanel>
-                    <TabPanel>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }}>
-
-                            {/* lewo */}
-                            <Flex w={{ base: '100%', md: '50%' }} alignItems={'center'}
-                                flexDir={'column'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Warrior Syringe</Heading>
-                                <Image alt='Warrior syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/warriorsyringe.png' />
-                            </Flex>
-
-                            {/* Crafting */}
-                            <Flex w={{ base: '100%', md: '70%' }} textAlign={'center'} flexDir={{ base: 'column', md: 'row' }}>
-                                <Flex textAlign={{ base: 'left', md: 'center' }} ml={{ base: '0%', md: '0px' }} flexDir={'column'} mb={{ base: '20px', md: '0px' }} mr={{ base: '0px', md: '20px' }} m={'auto'}>
-                                    <Text>Crafting: shapeless</Text>
-                                    <Text>Ingredients:</Text>
-                                    <OrderedList margin={{ base: 'left', md: 'auto' }} ml={{ base: '16%', md: '0px' }} textAlign={'left'}>
-                                        <ListItem>Blaze powder</ListItem>
-                                        <ListItem>Golden carrot</ListItem>
-                                    </OrderedList>
-                                </Flex>
-                                <Flex flexDirection={'row'} alignItems={'center'} justifyContent='center'>
-                                    <Table border={'1px'} w={'100px'}><Tbody >
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='Blaze powder' w={'40px'}
-                                                src="/blaze_powder.png" margin={'auto'} />
-                                        </Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080" padding={0}>    </Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='heal syringe' w={'40px'}
-                                                src="/syringe.png" margin={'auto'} /></Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='Golden carrot' w={'40px'}
-                                                    src="/golden_carrot.png" margin={'auto'} />
-                                            </Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                    </Tbody></Table>
-                                    <ArrowRightIcon mr={'20px'} ml={'20px'} />
-                                    <Table border={'1px'} w={'50px'} h={'50px'}>
-                                        <Tbody>
-                                            <Tr>
-                                                <Td justifyContent={'center'} alignItems={'center'}
-                                                    padding={'0'} borderColor="bg">
-                                                    <Image style={{ imageRendering: "pixelated" }}
-                                                        alt='Warrior syringe' w={'40px'}
-                                                        src="/warriorsyringe.png" margin={'auto'} />
-                                                </Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-
-
-                        </Flex>
-
-
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
-        </motion.div>
-    )
-}
-const Ghostsyringe = ({ delay = 0 }) => {
-    const bg = useColorModeValue('#ebebeb', '#1f1f1f');
-    const color = useColorModeValue('#000', '#fff');
-    const res = '64px'
-    const border = useColorModeValue('#000', '#fff')
-    const variants = {
-        hidden: { opacity: 0, x: 0, y: 20 },
-        enter: { opacity: 1, x: 0, y: 0 },
-        exit: { opacity: 0, x: 0, y: 20 }
-    }
-    return (
-        <motion.div initial="hidden"
-            animate="enter"
-            exit="exit"
-            variants={variants}
-            transition={{ duration: 0.5, delay }}>
-            <Tabs colorScheme='green' variant='enclosed' mb={'100px'}>
-                <TabList borderBottom={'0px'}>
-                    <Tab _selected={{ color: color, bg: bg }}>Info</Tab>
-                    <Tab _selected={{ color: color, bg: bg }}>Crafting</Tab>
-                </TabList>
-                <TabPanels bg={bg} borderRadius={'10px'} borderTopLeftRadius={'0px'}>
-                    <TabPanel minH={'250px'}>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }} h={'100%'}>
-                            <Flex w={{ base: '100%', md: '40%' }} textAlign={'left'}
-                                flexDir={'column'} alignItems={'center'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Ghost Syringe</Heading>
-                                <Image alt='Ghost syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/ghostsyringe.png' />
-                            </Flex>
-                            <Flex flexDir={'column'}>
-                                <Flex w={'100%'} textAlign={'center'} alignItems="center" flexDir={'column'}>
-                                    Ghost syringe gives you invisibility 2 and speed 3 for 1 minute. Particels are invisible, so you can troll your friends ;)
-                                </Flex>
-                                <Flex mt={'10px'}>
-                                    <Table variant='simple'>
-                                        <Tbody>
-                                            <Tr borderTop={'1px'}>
-                                                <Td borderColor={border}>Number of uses</Td>
-                                                <Td borderColor={border}>1</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>duration</Td>
-                                                <Td borderColor={border}>60s</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>amplifier</Td>
-                                                <Td borderColor={border}>invisibility: 2, speed: 3</Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-                        </Flex>
-                    </TabPanel>
-                    <TabPanel>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }}>
-
-                            {/* lewo */}
-                            <Flex w={{ base: '100%', md: '50%' }} alignItems={'center'}
-                                flexDir={'column'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Ghost Syringe</Heading>
-                                <Image alt='Ghost syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/ghostsyringe.png' />
-                            </Flex>
-
-                            {/* Crafting */}
-                            <Flex w={{ base: '100%', md: '70%' }} textAlign={'center'} flexDir={{ base: 'column', md: 'row' }}>
-                                <Flex textAlign={{ base: 'left', md: 'center' }} ml={{ base: '0%', md: '0px' }} flexDir={'column'} mb={{ base: '20px', md: '0px' }} mr={{ base: '0px', md: '20px' }} m={'auto'}>
-                                    <Text>Crafting: shapeless</Text>
-                                    <Text>Ingredients:</Text>
-                                    <OrderedList margin={{ base: 'left', md: 'auto' }} ml={{ base: '16%', md: '0px' }} textAlign={'left'}>
-                                        <ListItem>Fermented spider eye</ListItem>
-                                        <ListItem>Sugar</ListItem>
-                                        <ListItem>Sugar cane</ListItem>
-                                    </OrderedList>
-                                </Flex>
-                                <Flex flexDirection={'row'} alignItems={'center'} justifyContent='center'>
-                                    <Table border={'1px'} w={'100px'}><Tbody >
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 2 miejsce */}
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='sugar' w={'40px'}
-                                                src="/sugar.png" margin={'auto'} />
-
-                                        </Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 4 miejsce */}
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='Fermented_spider_eye' w={'40px'}
-                                                src="/fermented_spider_eye.png" margin={'auto'} />
-                                        </Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 5 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='heal syringe' w={'40px'}
-                                                    src="/syringe.png" margin={'auto'} /></Td>
-                                            <Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 6 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='Sugar cane' w={'40px'}
-                                                    src="/sugar_cane.png" margin={'auto'} />
-                                            </Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                    </Tbody></Table>
-                                    <ArrowRightIcon mr={'20px'} ml={'20px'} />
-                                    <Table border={'1px'} w={'50px'} h={'50px'}>
-                                        <Tbody>
-                                            <Tr>
-                                                <Td justifyContent={'center'} alignItems={'center'}
-                                                    padding={'0'} borderColor="bg">
-                                                    <Image style={{ imageRendering: "pixelated" }}
-                                                        alt='Ghost syringe' w={'40px'}
-                                                        src="/ghostsyringe.png" margin={'auto'} />
-                                                </Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-
-
-                        </Flex>
-
-
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
-        </motion.div>
-    )
-}
-const Miningsyringe = ({ delay = 0 }) => {
-    const bg = useColorModeValue('#ebebeb', '#1f1f1f');
-    const color = useColorModeValue('#000', '#fff');
-    const res = '64px'
-    const border = useColorModeValue('#000', '#fff')
-    const variants = {
-        hidden: { opacity: 0, x: 0, y: 20 },
-        enter: { opacity: 1, x: 0, y: 0 },
-        exit: { opacity: 0, x: 0, y: 20 }
-    }
-    return (
-        <motion.div initial="hidden"
-            animate="enter"
-            exit="exit"
-            variants={variants}
-            transition={{ duration: 0.5, delay }}>
-            <Tabs colorScheme='green' variant='enclosed' mb={'100px'}>
-                <TabList borderBottom={'0px'}>
-                    <Tab _selected={{ color: color, bg: bg }}>Info</Tab>
-                    <Tab _selected={{ color: color, bg: bg }}>Crafting</Tab>
-                </TabList>
-                <TabPanels bg={bg} borderRadius={'10px'} borderTopLeftRadius={'0px'}>
-                    <TabPanel minH={'250px'}>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }} h={'100%'}>
-                            <Flex w={{ base: '100%', md: '40%' }} textAlign={'left'}
-                                flexDir={'column'} alignItems={'center'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Mining Syringe</Heading>
-                                <Image alt='Mining syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/miningsyringe.png' />
-                            </Flex>
-                            <Flex flexDir={'column'}>
-                                <Flex w={'100%'} textAlign={'center'} alignItems="center" flexDir={'column'}>
-                                    Mining syringe gives you haste 2 and night vision for 5 minutes.
-                                </Flex>
-                                <Flex mt={'10px'}>
-                                    <Table variant='simple'>
-                                        <Tbody>
-                                            <Tr borderTop={'1px'}>
-                                                <Td borderColor={border}>Number of uses</Td>
-                                                <Td borderColor={border}>1</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>duration</Td>
-                                                <Td borderColor={border}>5m</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>amplifier</Td>
-                                                <Td borderColor={border}>haste 2, night vision 1</Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-                        </Flex>
-                    </TabPanel>
-                    <TabPanel>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }}>
-
-                            {/* lewo */}
-                            <Flex w={{ base: '100%', md: '50%' }} alignItems={'center'}
-                                flexDir={'column'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Mining Syringe</Heading>
-                                <Image alt='mining syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/miningsyringe.png' />
-                            </Flex>
-
-                            {/* Crafting */}
-                            <Flex w={{ base: '100%', md: '70%' }} textAlign={'center'} flexDir={{ base: 'column', md: 'row' }}>
-                                <Flex textAlign={{ base: 'left', md: 'center' }} ml={{ base: '0%', md: '0px' }} flexDir={'column'} mb={{ base: '20px', md: '0px' }} mr={{ base: '0px', md: '20px' }} m={'auto'}>
-                                    <Text>Crafting: shapeless</Text>
-                                    <Text>Ingredients:</Text>
-                                    <OrderedList margin={{ base: 'left', md: 'auto' }} ml={{ base: '16%', md: '0px' }} textAlign={'left'}>
-                                        <ListItem>Golden carrot</ListItem>
-                                        <ListItem>Coal</ListItem>
-                                    </OrderedList>
-                                </Flex>
-                                <Flex flexDirection={'row'} alignItems={'center'} justifyContent='center'>
-                                    <Table border={'1px'} w={'100px'}><Tbody >
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 2 miejsce */}
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='Golden carrot' w={'40px'}
-                                                src="/golden_carrot.png" margin={'auto'} />
-
-                                        </Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 4 miejsce */}
-                                        </Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 5 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='syringe' w={'40px'}
-                                                    src="/syringe.png" margin={'auto'} /></Td>
-                                            <Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 6 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='Coal' w={'40px'}
-                                                    src="/coal.png" margin={'auto'} />
-                                            </Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                    </Tbody></Table>
-                                    <ArrowRightIcon mr={'20px'} ml={'20px'} />
-                                    <Table border={'1px'} w={'50px'} h={'50px'}>
-                                        <Tbody>
-                                            <Tr>
-                                                <Td justifyContent={'center'} alignItems={'center'}
-                                                    padding={'0'} borderColor="bg">
-                                                    <Image style={{ imageRendering: "pixelated" }}
-                                                        alt='Mining syringe' w={'40px'}
-                                                        src="/miningsyringe.png" margin={'auto'} />
-                                                </Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-
-
-                        </Flex>
-
-
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
-        </motion.div>
-    )
-}
-const Fallingsyringe = ({ delay = 0 }) => {
-    const bg = useColorModeValue('#ebebeb', '#1f1f1f');
-    const color = useColorModeValue('#000', '#fff');
-    const res = '64px'
-    const border = useColorModeValue('#000', '#fff')
-    const variants = {
-        hidden: { opacity: 0, x: 0, y: 20 },
-        enter: { opacity: 1, x: 0, y: 0 },
-        exit: { opacity: 0, x: 0, y: 20 }
-    }
-    return (
-        <motion.div initial="hidden"
-            animate="enter"
-            exit="exit"
-            variants={variants}
-            transition={{ duration: 0.5, delay }}>
-            <Tabs colorScheme='green' variant='enclosed' mb={'100px'}>
-                <TabList borderBottom={'0px'}>
-                    <Tab _selected={{ color: color, bg: bg }}>Info</Tab>
-                    <Tab _selected={{ color: color, bg: bg }}>Crafting</Tab>
-                </TabList>
-                <TabPanels bg={bg} borderRadius={'10px'} borderTopLeftRadius={'0px'}>
-                    <TabPanel minH={'250px'}>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }} h={'100%'}>
-                            <Flex w={{ base: '100%', md: '40%' }} textAlign={'left'}
-                                flexDir={'column'} alignItems={'center'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Falling Syringe</Heading>
-                                <Image alt='Falling syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/fallingsyringe.png' />
-                            </Flex>
-                            <Flex flexDir={'column'}>
-                                <Flex w={'100%'} textAlign={'center'} alignItems="center" flexDir={'column'}>
-                                    Falling syringe gives slow falling 3 for 30 seconds and nausea for 25 seconds.
-                                </Flex>
-                                <Flex mt={'10px'}>
-                                    <Table variant='simple'>
-                                        <Tbody>
-                                            <Tr borderTop={'1px'}>
-                                                <Td borderColor={border}>Number of uses</Td>
-                                                <Td borderColor={border}>2</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>duration</Td>
-                                                <Td borderColor={border}>30s</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>amplifier</Td>
-                                                <Td borderColor={border}>slow falling: 3, nausea: 1</Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-                        </Flex>
-                    </TabPanel>
-                    <TabPanel>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }}>
-
-                            {/* lewo */}
-                            <Flex w={{ base: '100%', md: '50%' }} alignItems={'center'}
-                                flexDir={'column'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Falling Syringe</Heading>
-                                <Image alt='Falling syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/fallingsyringe.png' />
-                            </Flex>
-
-                            {/* Crafting */}
-                            <Flex w={{ base: '100%', md: '70%' }} textAlign={'center'} flexDir={{ base: 'column', md: 'row' }}>
-                                <Flex textAlign={{ base: 'left', md: 'center' }} ml={{ base: '0%', md: '0px' }} flexDir={'column'} mb={{ base: '20px', md: '0px' }} mr={{ base: '0px', md: '20px' }} m={'auto'}>
-                                    <Text>Crafting: shapeless</Text>
-                                    <Text>Ingredients:</Text>
-                                    <OrderedList margin={{ base: 'left', md: 'auto' }} ml={{ base: '16%', md: '0px' }} textAlign={'left'}>
-                                        <ListItem>Phantom membrane</ListItem>
-                                        <ListItem>cornflower</ListItem>
-                                    </OrderedList>
-                                </Flex>
-                                <Flex flexDirection={'row'} alignItems={'center'} justifyContent='center'>
-                                    <Table border={'1px'} w={'100px'}><Tbody >
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 2 miejsce */}
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='Phantom membrane' w={'40px'}
-                                                src="/phantom_membrane.png" margin={'auto'} />
-
-                                        </Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 4 miejsce */}
-                                            {/* <Image style={{ imageRendering: "pixelated" }}
-                                                alt='Fermented_spider_eye' w={'40px'}
-                                                src="/Fermented_spider_eye.png" margin={'auto'} /> */}
-                                        </Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 5 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='heal syringe' w={'40px'}
-                                                    src="/syringe.png" margin={'auto'} /></Td>
-                                            <Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 6 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='cornflowe' w={'40px'}
-                                                    src="/cornflower.png" margin={'auto'} />
-                                            </Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                    </Tbody></Table>
-                                    <ArrowRightIcon mr={'20px'} ml={'20px'} />
-                                    <Table border={'1px'} w={'50px'} h={'50px'}>
-                                        <Tbody>
-                                            <Tr>
-                                                <Td justifyContent={'center'} alignItems={'center'}
-                                                    padding={'0'} borderColor="bg">
-                                                    <Image style={{ imageRendering: "pixelated" }}
-                                                        alt='Falling syringe' w={'40px'}
-                                                        src="/fallingsyringe.png" margin={'auto'} />
-                                                </Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-
-
-                        </Flex>
-
-
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
-        </motion.div>
-    )
-}
-const Mushroomsyringe = ({ delay = 0 }) => {
-    const bg = useColorModeValue('#ebebeb', '#1f1f1f');
-    const color = useColorModeValue('#000', '#fff');
-    const res = '64px'
-    const border = useColorModeValue('#000', '#fff')
-    const variants = {
-        hidden: { opacity: 0, x: 0, y: 20 },
-        enter: { opacity: 1, x: 0, y: 0 },
-        exit: { opacity: 0, x: 0, y: 20 }
-    }
-    return (
-        <motion.div initial="hidden"
-            animate="enter"
-            exit="exit"
-            variants={variants}
-            transition={{ duration: 0.5, delay }}>
-            <Tabs colorScheme='green' variant='enclosed' mb={'100px'}>
-                <TabList borderBottom={'0px'}>
-                    <Tab _selected={{ color: color, bg: bg }}>Info</Tab>
-                    <Tab _selected={{ color: color, bg: bg }}>Crafting</Tab>
-                </TabList>
-                <TabPanels bg={bg} borderRadius={'10px'} borderTopLeftRadius={'0px'}>
-                    <TabPanel minH={'250px'}>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }} h={'100%'}>
-                            <Flex w={{ base: '100%', md: '40%' }} textAlign={'left'}
-                                flexDir={'column'} alignItems={'center'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Mushroom Syringe</Heading>
-                                <Image alt='Mushroom syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/mushroomsyringe.png' />
-                            </Flex>
-                            <Flex flexDir={'column'}>
-                                <Flex w={'100%'} textAlign={'center'} alignItems="center" flexDir={'column'}>
-                                    Mushroom syringe gives you nausea 2 for 15 seconds. Effects like mushroom soup and drugs ;)
-                                </Flex>
-                                <Flex mt={'10px'}>
-                                    <Table variant='simple'>
-                                        <Tbody>
-                                            <Tr borderTop={'1px'}>
-                                                <Td borderColor={border}>Number of uses</Td>
-                                                <Td borderColor={border}>2</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>duration</Td>
-                                                <Td borderColor={border}>15s</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>amplifier</Td>
-                                                <Td borderColor={border}>nausea 2</Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-                        </Flex>
-                    </TabPanel>
-                    <TabPanel>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }}>
-
-                            {/* lewo */}
-                            <Flex w={{ base: '100%', md: '50%' }} alignItems={'center'}
-                                flexDir={'column'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Mushroom Syringe</Heading>
-                                <Image alt='Mushroom syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/mushroomsyringe.png' />
-                            </Flex>
-
-                            {/* Crafting */}
-                            <Flex w={{ base: '100%', md: '70%' }} textAlign={'center'} flexDir={{ base: 'column', md: 'row' }}>
-                                <Flex textAlign={{ base: 'left', md: 'center' }} ml={{ base: '0%', md: '0px' }} flexDir={'column'} mb={{ base: '20px', md: '0px' }} mr={{ base: '0px', md: '20px' }} m={'auto'}>
-                                    <Text>Crafting: shapeless</Text>
-                                    <Text>Ingredients:</Text>
-                                    <OrderedList margin={{ base: 'left', md: 'auto' }} ml={{ base: '16%', md: '0px' }} textAlign={'left'}>
-                                        <ListItem>red mushroom</ListItem>
-                                        <ListItem>brow mushroom</ListItem>
-                                        <ListItem>kelp</ListItem>
-                                        <ListItem>spider eye</ListItem>
-                                    </OrderedList>
-                                </Flex>
-                                <Flex flexDirection={'row'} alignItems={'center'} justifyContent='center'>
-                                    <Table border={'1px'} w={'100px'}><Tbody >
-                                        <Tr><Td border={'1px'} borderColor="#808080"></Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 2 miejsce */}
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='brown mushoroom' w={'40px'}
-                                                src="/brown_mushroom.png" margin={'auto'} />
-
-                                        </Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 4 miejsce */}
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='Red mushroom' w={'40px'}
-                                                src="/red_mushroom.png" margin={'auto'} />
-                                        </Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 5 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='heal syringe' w={'40px'}
-                                                    src="/syringe.png" margin={'auto'} /></Td>
-                                            <Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 6 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='kelp' w={'40px'}
-                                                    src="/kelp.png" margin={'auto'} />
-                                            </Td></Tr>
-                                        <Tr>
-                                            <Td border={'1px'} borderColor="#808080" ></Td>
-                                            <Td border={'1px'} borderColor="#808080" p={'0'}>
-                                                {/* 8 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='spider eye' w={'40px'}
-                                                    src="/spider_eye.png" margin={'auto'} />
-                                            </Td>
-                                            <Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                    </Tbody></Table>
-                                    <ArrowRightIcon mr={'20px'} ml={'20px'} />
-                                    <Table border={'1px'} w={'50px'} h={'50px'}>
-                                        <Tbody>
-                                            <Tr>
-                                                <Td justifyContent={'center'} alignItems={'center'}
-                                                    padding={'0'} borderColor="bg">
-                                                    <Image style={{ imageRendering: "pixelated" }}
-                                                        alt='Mushroom syringe' w={'40px'}
-                                                        src="/mushroomsyringe.png" margin={'auto'} />
-                                                </Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-
-
-                        </Flex>
-
-
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
-        </motion.div>
-    )
-}
-const SyringeItem = ({ delay = 0 }) => {
-    const bg = useColorModeValue('#ebebeb', '#1f1f1f');
-    const color = useColorModeValue('#000', '#fff');
-    const res = '64px'
-    const border = useColorModeValue('#000', '#fff')
-    const variants = {
-        hidden: { opacity: 0, x: 0, y: 20 },
-        enter: { opacity: 1, x: 0, y: 0 },
-        exit: { opacity: 0, x: 0, y: 20 }
-    }
-    return (
-        <motion.div initial="hidden"
-            animate="enter"
-            exit="exit"
-            variants={variants}
-            transition={{ duration: 0.5, delay }}>
-            <Tabs colorScheme='green' variant='enclosed' mb={'100px'}>
-                <TabList borderBottom={'0px'}>
-                    <Tab _selected={{ color: color, bg: bg }}>Info</Tab>
-                    <Tab _selected={{ color: color, bg: bg }}>Crafting</Tab>
-                </TabList>
-                <TabPanels bg={bg} borderRadius={'10px'} borderTopLeftRadius={'0px'}>
-                    <TabPanel minH={'250px'}>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }} h={'100%'}>
-                            <Flex w={{ base: '100%', md: '40%' }} textAlign={'left'}
-                                flexDir={'column'} alignItems={'center'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Syringe</Heading>
-                                <Image alt='syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/syringe.png' />
-                            </Flex>
-                            <Flex flexDir={'column'}>
-                                <Flex w={'100%'} textAlign={'center'} alignItems="center" flexDir={'column'}>
-                                    From syringe item you can make other syringes.
-                                </Flex>
-                                <Flex mt={'10px'}>
-                                    <Table variant='simple'>
-                                        <Tbody>
-                                            <Tr borderTop={'1px'}>
-                                                <Td borderColor={border}>Stack</Td>
-                                                <Td borderColor={border}>16</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>duration</Td>
-                                                <Td borderColor={border}>---</Td>
-                                            </Tr>
-                                            <Tr>
-                                                <Td borderColor={border}>amplifier</Td>
-                                                <Td borderColor={border}>---</Td>
-                                            </Tr>
-                                        </Tbody>
-                                    </Table>
-                                </Flex>
-                            </Flex>
-                        </Flex>
-                    </TabPanel>
-                    <TabPanel>
-                        <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }}>
-
-                            {/* lewo */}
-                            <Flex w={{ base: '100%', md: '50%' }} alignItems={'center'}
-                                flexDir={'column'} justifyContent={'center'}>
-                                <Heading fontSize='25px'>Syringe</Heading>
-                                <Image alt='syringe' mt={'10px'}
-                                    style={{ imageRendering: "pixelated" }} width={res}
-                                    height={res} src='/syringe.png' />
-                            </Flex>
-
-                            {/* Crafting */}
-                            <Flex w={{ base: '100%', md: '70%' }} textAlign={'center'} flexDir={{ base: 'column', md: 'row' }}>
-                                <Flex textAlign={{ base: 'left', md: 'center' }} ml={{ base: '0%', md: '0px' }} flexDir={'column'} mb={{ base: '20px', md: '0px' }} mr={{ base: '0px', md: '20px' }} m={'auto'}>
-                                    <Text>Crafting: shapeless</Text>
-                                    <Text>Ingredients:</Text>
-                                    <OrderedList margin={{ base: 'left', md: 'auto' }} ml={{ base: '16%', md: '0px' }} textAlign={'left'}>
-                                        <ListItem>Glass</ListItem>
-                                        <ListItem>Iron ingot</ListItem>
-                                    </OrderedList>
-                                </Flex>
-                                <Flex flexDirection={'row'} alignItems={'center'} justifyContent='center'>
-                                    <Table border={'1px'} w={'100px'}><Tbody >
-                                        <Tr><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 1 miejsce */}
-                                            <Image style={{ imageRendering: "pixelated" }}
-                                                alt='glass' w={'40px'}
-                                                src="/glass.png" margin={'auto'} />
-
-                                        </Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 2 miejsce */}
-                                                {/* <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='brown mushoroom' w={'40px'}
-                                                    src="/brown_mushroom.png" margin={'auto'} /> */}
-
-                                            </Td><Td border={'1px'} borderColor="#808080"></Td></Tr>
-                                        <Tr><Td border={'1px'} borderColor="#808080" padding={0}>
-                                            {/* 4 miejsce */}
-                                            {/* <Image style={{ imageRendering: "pixelated" }}
-                                                alt='Red mushroom' w={'40px'}
-                                                src="/red_mushroom.png" margin={'auto'} /> */}
-                                        </Td><Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 5 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='glass' w={'40px'}
-                                                    src="/glass.png" margin={'auto'} /></Td>
-                                            <Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 6 miejsce */}
-                                                {/* <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='kelp' w={'40px'}
-                                                    src="/kelp.png" margin={'auto'} /> */}
-                                            </Td></Tr>
-                                        <Tr>
-                                            <Td border={'1px'} borderColor="#808080" ></Td>
-                                            <Td border={'1px'} borderColor="#808080" p={'0'}>
-                                                {/* 8 miejsce */}
-                                                {/* <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='spider eye' w={'40px'}
-                                                    src="/spider_eye.png" margin={'auto'} /> */}
-                                            </Td>
-                                            <Td border={'1px'} borderColor="#808080" padding={0}>
-                                                {/* 9 miejsce */}
-                                                <Image style={{ imageRendering: "pixelated" }}
-                                                    alt='iron ingot' w={'40px'}
-                                                    src="/iron_ingot.png" margin={'auto'} />
-                                            </Td></Tr>
-                                    </Tbody></Table>
-                                    <ArrowRightIcon mr={'20px'} ml={'20px'} />
-                                    <Table border={'1px'} w={'50px'} h={'50px'}>
-                                        <Tbody>
-                                            <Tr>
-                                                <Td justifyContent={'center'} alignItems={'center'}
-                                                    padding={'0'} borderColor="bg">
-                                                    <Image style={{ imageRendering: "pixelated" }}
-                                                        alt='syringe' w={'40px'}
-                                                        src="/syringe.png" margin={'auto'} />
+                                                        src={icon} margin={'auto'} />
                                                 </Td>
                                             </Tr>
                                         </Tbody>
@@ -1003,6 +213,12 @@ const He = ({ children, delay = 0, ...props }) => {
             <Heading mt={'10px'} color={'primary'} as="h1" fontSize={'3xl'} {...props}>{children}</Heading>
         </motion.h1>
     );
+}
+const Craft = ({ source }) => {
+    return (
+        <Image style={{ imageRendering: "pixelated" }} src={source}
+            alt={source} w={'40px'} margin={'auto'} />
+    )
 }
 
 
@@ -1103,15 +319,80 @@ const Syringe = ({ delay = 0 }) => {
 
             <Links />
             <He fontFamily={"Work Sans"} color="color" textAlign='left' m="0" ml={{ base: '5px', md: '30px' }} mb="20px" letterSpacing="2px" fontWeight="900">Syringes</He>
-            <Healsyringe />
-            <Warriorsyringe />
-            <Ghostsyringe />
-            <Miningsyringe />
-            <Fallingsyringe />
-            <Mushroomsyringe />
+            <Syringetemplate title={'Healing syringe'} icon={'/healsyringe.png'} uses={'2'} duration={'4s'} amplifier={'60'}
+                info={'Heal syringe gives for a few seconds very strong regeneration, so it heals you to full in a few seconds!'}
+                ingredient1={<ListItem>sugar</ListItem>}
+                ingredient2={<ListItem>beetroot</ListItem>}
+                ingredient3={<ListItem>poppy</ListItem>}
+                two={<Craft source={'/beetroot.png'} />}
+                four={<Craft source={'/sugar.png'} />}
+                five={<Craft source={'/syringe.png'} />}
+                six={<Craft source={'/poppy.png'} />}
+            />
+            <Syringetemplate title={'Warrior syringe'} icon={'/warriorsyringe.png'} uses={'2'} duration={'60s'} amplifier={'resistance: 2, strength: 1'}
+                info={'Warrior syringe gives you resistance 2, strength 1 and health boost 1 for 1 minute.'}
+                ingredient1={<ListItem>Blazwe powder</ListItem>}
+                ingredient2={<ListItem>Golden carrot</ListItem>}
+                two={<Craft source={'/blaze_powder.png'} />}
+                five={<Craft source={'/syringe.png'} />}
+                six={<Craft source={'/golden_carrot.png'} />}
+            />
+            <Syringetemplate title={'Ghost syringe'} icon={'/ghostsyringe.png'} uses={'1'} duration={'60s'} amplifier={'invisibility: 2, speed: 3'}
+                info={'Ghost syringe gives you invisibility 2 and speed 3 for 1 minute. Particels are invisible, so you can troll your friends ;)'}
+                ingredient1={<ListItem>Sugar</ListItem>}
+                ingredient2={<ListItem>Fermented spider eye</ListItem>}
+                ingredient3={<ListItem>sugar cane</ListItem>}
+                two={<Craft source={'/sugar.png'} />}
+                five={<Craft source={'/syringe.png'} />}
+                four={<Craft source={'/fermented_spider_eye.png'} />}
+                six={<Craft source={'/sugar_cane.png'} />}
+            />
+            <Syringetemplate title={'Mining syringe'} icon={'/miningsyringe.png'} uses={'1'} duration={'5m'} amplifier={'haste 2, night vision 1'}
+                info={'Mining syringe gives you haste 2 and night vision for 5 minutes.'}
+                ingredient1={<ListItem>Golden carrot</ListItem>}
+                ingredient2={<ListItem>Coal</ListItem>}
+                two={<Craft source={'/golden_carrot.png'} />}
+                five={<Craft source={'/syringe.png'} />}
+                six={<Craft source={'/coal.png'} />}
+            />
+            <Syringetemplate title={'Falling syringe'} icon={'/fallingsyringe.png'} uses={'2'} duration={'30s'} amplifier={'slow falling: 3, nausea: 1'}
+                info={'Falling syringe gives slow falling 3 for 30 seconds and nausea for 25 seconds.'}
+                ingredient1={<ListItem>Phantom membrane</ListItem>}
+                ingredient2={<ListItem>Cornflower</ListItem>}
+                two={<Craft source={'/phantom_membrane.png'} />}
+                five={<Craft source={'/syringe.png'} />}
+                six={<Craft source={'/cornflower.png'} />}
+            />
+            <Syringetemplate title={'Mushroom syringe'} icon={'/mushroomsyringe.png'} uses={'2'} duration={'15s'} amplifier={'nausea 2'}
+                info={'Mushroom syringe gives you nausea 2 for 15 seconds. Effects like mushroom soup and drugs ;)'}
+                ingredient1={<ListItem>Red mushroom</ListItem>}
+                ingredient2={<ListItem>Brown mushroom</ListItem>}
+                ingredient3={<ListItem>Kelp</ListItem>}
+                ingredient4={<ListItem>Spider eye</ListItem>}
+                two={<Craft source={'/brown_mushroom.png'} />}
+                four={<Craft source={'/red_mushroom.png'} />}
+                five={<Craft source={'/syringe.png'} />}
+                six={<Craft source={'/kelp.png'} />}
+                eight={<Craft source={'/spider_eye.png'} />}
+            />
+            <Syringetemplate title={'Fire syringe'} icon={'/firesyringe.png'} uses={'2'} duration={'3m'} amplifier={'fire resistance 3'}
+                info={'Fire syringe is a fire resistance 3 for 3 minutes, but with 2 uses.'}
+                ingredient1={<ListItem>Glistering melon slice</ListItem>}
+                ingredient2={<ListItem>Nether wart</ListItem>}
+                two={<Craft source={'/glistering_melon_slice.png'} />}
+                five={<Craft source={'/syringe.png'} />}
+                six={<Craft source={'/nether_wart.png'} />}
+            />
             <Links />
             <He id="Items" fontFamily={"Work Sans"} color="color" margin="0" textAlign='left' ml={{ base: '5px', md: '30px' }} mb="20px" letterSpacing="2px" fontWeight="900">Items</He>
-            <SyringeItem />
+            <Syringetemplate title={'Syringe'} icon={'/syringe.png'} uses={'16'} duration={'---'} amplifier={'---'} table1="Stack" crafting="shaped"
+                info={'From syringe item you can make other syringes.'}
+                ingredient1={<ListItem>Glass</ListItem>}
+                ingredient2={<ListItem>Iron ingot</ListItem>}
+                one={<Craft source={'/glass.png'} />}
+                five={<Craft source={'/glass.png'} />}
+                nine={<Craft source={'/iron_ingot.png'} />}
+            />
         </Ramki >
     );
 }

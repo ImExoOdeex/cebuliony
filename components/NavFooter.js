@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 export default function NavFooter({ delay = 0 }) {
     const data = new Date()
     const rok = data.getFullYear()
-    const version = '2.1'
+    const version = '2.2'
     const variants = {
         hidden: { opacity: 0, x: 0, y: -10 },
         enter: { opacity: 1, x: 0, y: 0 },

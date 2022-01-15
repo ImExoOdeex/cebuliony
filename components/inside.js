@@ -68,7 +68,7 @@ const Inside = ({ delay = 0 }) => {
                 <T>Z badań wynika, że polska ziemia jest najlepsza dla Cebulionów.
                     Czują się tam one najwygodniej i najszybciej rosną.</T>
                 <T>Na ostatnim wywiadzie z Cebulionami dowiedzieliśmy się, że:</T>
-                <UnorderedList px={'10px'} textAlign={'left'}>
+                <UnorderedList px={'10px'} textAlign={'left'} lineHeight={'180%'}>
                     <ListItem >W polskiej ziemi czują się najbezpieczniej, ponieważ nieraz zostały zjedzone za granicą.</ListItem>
                     <ListItem>Śpi im się bardzo dobrze. Podobno polska ziemia jest najmiększa na całym świecie!</ListItem>
                 </UnorderedList>
@@ -105,7 +105,7 @@ const Inside = ({ delay = 0 }) => {
             </motion.div>
             <He marginTop="40px">Przygotuj się na inwazję</He>
             <Normal><T>Warto zacząć robić zapasy, ponieważ:</T>
-                <UnorderedList mt={'20px'} textAlign={'center'} marginX={'40px'} lineHeight={'180%'}>
+                <UnorderedList px={'10px'} textAlign={'left'} lineHeight={'180%'}>
                     <ListItem>Niedługo cebuliony obejmą cały świat.</ListItem>
                     <ListItem>Sklepy nie będą funkcjonowały, ponieważ cebuliony je obrabują.</ListItem>
                     <ListItem>Jak nie zrobisz zapasów zginiesz, proste.</ListItem>
