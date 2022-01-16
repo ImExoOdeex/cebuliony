@@ -389,8 +389,8 @@ const Syringe = ({ delay = 0 }) => {
                 info={'From syringe item you can make other syringes.'}
                 ingredient1={<ListItem>Glass</ListItem>}
                 ingredient2={<ListItem>Iron ingot</ListItem>}
-                one={<Craft source={'/glass.png'} />}
-                five={<Craft source={'/glass.png'} />}
+                one={<Craft source={'https://ik.imagekit.io/o532f5vcp38/tr:w-40/glass_RB6V69n6w.png?ik-sdk-version=javascript-1.4.3&updatedAt=1642289567245'} />}
+                five={<Craft source={'https://ik.imagekit.io/o532f5vcp38/tr:w-40/glass_RB6V69n6w.png?ik-sdk-version=javascript-1.4.3&updatedAt=1642289567245g'} />}
                 nine={<Craft source={'/iron_ingot.png'} />}
             />
         </Ramki >

@@ -59,7 +59,7 @@ const Inside = ({ delay = 0 }) => {
                 transition={{ duration: 0.6, delay }}>
                 <Skeleton isLoaded startColor={start} endColor={end} m={'auto'} maxW={ske}>
                     <Image
-                        alt='pewien' src='https://ik.imagekit.io/o532f5vcp38/ceb_oLGwKW5E779?updatedAt=1628017145229'
+                        alt='pewien' src='https://ik.imagekit.io/o532f5vcp38/tr:w-500/ceb_oLGwKW5E779?updatedAt=1628017145229'
                         w={'700px'} h={'auto'} margin={'auto'} mt={'50px'} rounded='lg' />
                 </Skeleton>
             </motion.div>
@@ -80,7 +80,7 @@ const Inside = ({ delay = 0 }) => {
                 transition={{ duration: 0.6, delay }}>
                 <Skeleton isLoaded startColor={start} endColor={end} m={'auto'} MaxW={ske}>
                     <Image
-                        alt='pewien' src='https://ik.imagekit.io/o532f5vcp38/ceb2_8Lj5QC6GqCc?updatedAt=1628017112766'
+                        alt='pewien' src='https://ik.imagekit.io/o532f5vcp38/tr:w-400/ceb2_8Lj5QC6GqCc?updatedAt=1628017112766'
                         w={'700px'} h={'auto'} margin={'auto'} mt={'50px'} rounded='lg' loading="lazy" />
                 </Skeleton>
             </motion.div>
@@ -99,7 +99,7 @@ const Inside = ({ delay = 0 }) => {
                 transition={{ duration: 0.6, delay }}>
                 <Skeleton isLoaded startColor={start} endColor={end} m={'auto'} MaxW={ske}>
                     <Image
-                        alt='pewien' src='https://ik.imagekit.io/o532f5vcp38/ceb3_69i2Cmk7ZX-?updatedAt=1631381146765'
+                        alt='pewien' src='https://ik.imagekit.io/o532f5vcp38/tr:w-500/ceb3_69i2Cmk7ZX-?updatedAt=1631381146765'
                         w={'700px'} h={'auto'} margin={'auto'} mt={'50px'} rounded='lg' loading="lazy" />
                 </Skeleton>
             </motion.div>
@@ -120,7 +120,7 @@ const Inside = ({ delay = 0 }) => {
                     transition={{ duration: 0.6, delay }}>
                     <Image marginRight='7px'
                         alt='pewien'
-                        src='https://ik.imagekit.io/o532f5vcp38/icon_r9AXDu7be.png?updatedAt=1628891729360'
+                        src='https://ik.imagekit.io/o532f5vcp38/tr:w-40/icon_r9AXDu7be.png?updatedAt=1628891729360'
                         w={'40px'} h={'auto'} rounded='lg'
                         VerticalAlign="middle" ></Image>
                 </motion.div>
