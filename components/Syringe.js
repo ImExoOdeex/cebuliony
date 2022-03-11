@@ -19,7 +19,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   useToast,
-  chakra,
   Tooltip,
 } from "@chakra-ui/react";
 import Ramki from "./ramki";
@@ -370,7 +369,6 @@ const Syringe = ({ delay = 0 }) => {
     enter: { opacity: 1, x: 0, y: 0 },
     exit: { opacity: 0, x: 0, y: 20 },
   };
-  const warning = useColorModeValue("orange.600", "orange.300");
   return (
     <Ramki>
       <motion.div
