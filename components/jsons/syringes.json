@@ -1,0 +1,214 @@
+[
+    {
+        "id": 1,
+        "name": "Healing syringe",
+        "info": "Heal syringe gives for a few seconds very strong regeneration, so it heals you to full in a few seconds!",
+        "uses": 2,
+        "duration": "4s",
+        "amplifier": "4",
+        "icon": "healsyringe.png",
+        "ingredients": [
+            "sugar",
+            "beeetroot",
+            "poppy"
+        ],
+        "ingredients_texture": [
+            "",
+            "beetroot.png",
+            "",
+            "sugar.png",
+            "syringe.png",
+            "poppy.png",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": ""
+    },
+    {
+        "id": 2,
+        "name": "Warrior syringe",
+        "info": "Warrior syringe gives you resistance 2, strength 1 and health boost 1 for 1 minute.",
+        "uses": 2,
+        "duration": "60s",
+        "amplifier": "resistance: 2, strength: 1",
+        "icon": "warriorsyringe.png",
+        "ingredients": [
+            "Blazwe powder",
+            "Golden carrot"
+        ],
+        "ingredients_texture": [
+            "",
+            "blaze_powder.png",
+            "",
+            "",
+            "syringe.png",
+            "golden_carrot.png",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": ""
+    },
+    {
+        "id": 3,
+        "name": "Ghost syringe",
+        "info": "Ghost syringe gives you invisibility 2 and speed 3 for 1 minute. Particels are invisible, so you can troll your friends ;)",
+        "uses": 1,
+        "duration": "60s",
+        "amplifier": "invisibility: 2, speed: 3",
+        "icon": "ghostsyringe.png",
+        "ingredients": [
+            "Sugar",
+            "Fermented spider eye",
+            "sugar cane"
+        ],
+        "ingredients_texture": [
+            "",
+            "sugar.png",
+            "",
+            "fermented_spider_eye.png",
+            "syringe.png",
+            "sugar_cane.png",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": ""
+    },
+    {
+        "id": 4,
+        "name": "Mining syringe",
+        "info": "Mining syringe gives you haste 2 and night vision for 5 minutes.",
+        "uses": 1,
+        "duration": "5m",
+        "amplifier": "haste 2, night vision 1",
+        "icon": "miningsyringe.png",
+        "ingredients": [
+            "Golden carrot",
+            "Coal"
+        ],
+        "ingredients_texture": [
+            "",
+            "golden_carrot.png",
+            "",
+            "",
+            "syringe.png",
+            "coal.png",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": ""
+    },
+    {
+        "id": 5,
+        "name": "Falling syringe",
+        "info": "Falling syringe gives slow falling 3 for 30 seconds.",
+        "uses": 2,
+        "duration": "30s",
+        "amplifier": "slow falling: 3",
+        "icon": "fallingsyringe.png",
+        "ingredients": [
+            "Phantom membrane",
+            "Cornflower"
+        ],
+        "ingredients_texture": [
+            "",
+            "phantom_membrane.png",
+            "",
+            "",
+            "syringe.png",
+            "cornflower.png",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": ""
+    },
+    {
+        "id": 6,
+        "name": "Mushroom syringe",
+        "info": "Mushroom syringe gives you nausea 2 for 15 seconds. Effects like mushroom soup and drugs ;)",
+        "uses": 2,
+        "duration": "15s",
+        "amplifier": "nausea 2",
+        "icon": "mushroomsyringe.png",
+        "ingredients": [
+            "Red mushroom",
+            "Brown mushroom",
+            "Kelp",
+            "Spider eye"
+        ],
+        "ingredients_texture": [
+            "",
+            "brown_mushroom.png",
+            "",
+            "red_mushroom.png",
+            "syringe.png",
+            "kelp.png",
+            "",
+            "spider_eye.png",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": ""
+    },
+    {
+        "id": 7,
+        "name": "Fire syringe",
+        "info": "Fire syringe is a fire resistance 3 for 3 minutes, but with 2 uses.",
+        "uses": 2,
+        "duration": "3m",
+        "amplifier": "fire resistance 3",
+        "icon": "firesyringe.png",
+        "ingredients": [
+            "Glistering melon slice",
+            "Nether wart"
+        ],
+        "ingredients_texture": [
+            "",
+            "glistering_melon_slice.png",
+            "",
+            "",
+            "syringe.png",
+            "nether_wart.png",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": ""
+    },
+    {
+        "id": 8,
+        "name": "Luck syringe",
+        "info": "With luck you can find better generating loot in underground chests.",
+        "uses": 4,
+        "duration": "3m",
+        "amplifier": "luck 1",
+        "icon": "lucksyringe.png",
+        "ingredients": [
+            "Emerald block",
+            "Grass"
+        ],
+        "ingredients_texture": [
+            "",
+            "https://ik.imagekit.io/o532f5vcp38/tr:w-50/Block_of_Emerald_JE4_BE3_zcnGw8uABl.png?ik-sdk-version=javascript-1.4.3&updatedAt=1644064807389",
+            "",
+            "",
+            "syringe.png",
+            "https://ik.imagekit.io/o532f5vcp38/tr:w-50/Tall_Grass_Ihdz3NICl.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643735887964",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": ""
+    }
+]

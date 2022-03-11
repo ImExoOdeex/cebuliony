@@ -24,7 +24,7 @@ export default function Nav() {
     return (
         <Box bg={useColorModeValue('secondarylight', 'secondarydark')}
             px={4} align="center" position={'sticky'} top={'-0.1'} zIndex={999999}>
-            <Flex h={16}
+            <Flex h={16} as='header'
                 alignItems={'center'}
                 justifyContent={'space-between'}
                 maxW={'1100px'} >
@@ -35,7 +35,7 @@ export default function Nav() {
                             <Image alt='www.cebuliony.pl' w={50} h={50} src='https://ik.imagekit.io/o532f5vcp38/cebulka144_89RRv6pjX.png?updatedAt=1628272464533' />
                         </Link>
                         <Link letterSpacing={'3px'} fontWeight={'bold'} color='primary' as="a"
-                            alignItems={'center'} textShadow={color}
+                            alignItems={'center'} fontSize={{base: '13px', md: '15px'}} textShadow={color}
                             justifyContent={'center'}
                             verticalAlign={'middle'}
                             href='/'

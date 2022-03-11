@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "name": "Magic powder",
+        "info": "This is the best fuel in all mod.",
+        "seconds": 250,
+        "icon": "magic_powder.png",
+        "ingredients": [
+            "sugar",
+            "redstone",
+            "glowstone dust",
+            "amethyst shard"
+        ],
+        "ingredients_texture": [
+            "sugar.png",
+            "redstone.png",
+            "glowstone_dust.png",
+            "amethyst_shard.png",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "color": "",
+        "count": "",
+        "unit": "s",
+        "warning": ""
+    },
+    {
+        "id": 2,
+        "name": "Sawdust",
+        "info": "Saw dust made from any planks or wood can be crafted in stonecutter.",
+        "seconds": 3.75,
+        "icon": "sawdust.png",
+        "ingredients": [
+            "any planks/logs"
+        ],
+        "ingredients_texture": [
+            "",
+            "",
+            "",
+            "",
+            "https://ik.imagekit.io/o532f5vcp38/Oak_Planks_JE5_7yC0uuVCs.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643983884482",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "stonecutting",
+        "color": "green.500",
+        "count": "4",
+        "unit": "s",
+        "warning": ""
+    },
+    {
+        "id": 3,
+        "name": "Wood pellets",
+        "info": "Wood pellets are eco-friendly energy made from sawdust.",
+        "seconds": 30,
+        "icon": "wood_pellets.png",
+        "ingredients": [
+            "6x sawdust"
+        ],
+        "ingredients_texture": [
+            "sawdust.png",
+            "sawdust.png",
+            "sawdust.png",
+            "sawdust.png",
+            "sawdust.png",
+            "sawdust.png",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "color": "",
+        "count": "",
+        "unit": "s",
+        "warning": ""
+    },
+    {
+        "id": 4,
+        "name": "Flaming coal",
+        "info": "Better coal. Just hotter and 2 times longer.",
+        "seconds": 160,
+        "icon": "flaming_coal.png",
+        "ingredients": [
+            "coal",
+            "blaze powder/rod"
+        ],
+        "ingredients_texture": [
+            "coal.png",
+            "blaze_powder.png",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "color": "",
+        "count": "",
+        "unit": "s",
+        "warning": ""
+    },
+    {
+        "id": 4,
+        "name": "Sticks pile",
+        "info": "Made from sticks. Useful when you accidentally create 3 stacks of sticks.",
+        "seconds": 50,
+        "icon": "sticks_pile.png",
+        "ingredients": [
+            "nine sticks"
+        ],
+        "ingredients_texture": [
+            "stick.png",
+            "stick.png",
+            "stick.png",
+            "stick.png",
+            "stick.png",
+            "stick.png",
+            "stick.png",
+            "stick.png",
+            "stick.png"
+        ],
+        "crafting": "shaped",
+        "color": "",
+        "count": "",
+        "unit": "s",
+        "warning": ""
+    }
+
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "link": "/squirting_syringe",
+        "name": "Squirting syringe",
+        "icon": "syringeicon.png",
+        "info": "Autorski mod do gry Minecraft: Java edition",
+        "delay": 0,
+        "infododaje": "Mod dodaje do gry różne rodzaje zastrzyków, które posiadają wiele różnych efektów"
+    },
+    {
+        "id": 2,
+        "link": "/fuelify",
+        "name": "Fuelify",
+        "icon": "fuelifyicon.png",
+        "info": "Kolejny autorski mod do gry Minecraft: Java edition",
+        "delay": 2,
+        "infododaje": "Mod dodaje do gry więcej rodzaji paliw, które można użyć jako paliwa w piecu"
+    }
+]
