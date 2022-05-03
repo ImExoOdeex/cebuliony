@@ -11,7 +11,7 @@ import {
     ListItem,
     SimpleGrid,
     chakra,
-    Tooltip
+    Box
 } from "@chakra-ui/react";
 import Ramki from "./ramki";
 import T from "./T"
@@ -19,6 +19,8 @@ import { ArrowForwardIcon, DownloadIcon, InfoIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import Link from './Link'
 import Fuels from './jsons/fuels.json'
+import Games from './jsons/games.json'
+
 
 
 const Links = ({ delay = 0, ...props }) => {
@@ -94,10 +96,8 @@ const He = ({ children, delay = 0, ...props }) => {
 }
 const Craft = ({ source }) => {
     return (
-    <Tooltip label={source} hasArrow>
         <Image style={{ imageRendering: "pixelated" }} src={source}
             alt={source} w={'40px'} margin={'auto'} />
-    </Tooltip>
     )
 }
 
@@ -120,11 +120,10 @@ function MotionTd({ children, ...props }) {
         >
             {children}
         </MotionTd>
-        );
-    }
+    );
+}
 
 const Fuel = ({ delay = 0 }) => {
-    const fuels = '3'
     const bg = useColorModeValue('#ebebeb', '#1f1f1f');
     const color = useColorModeValue('#000', '#fff');
     const res = '64px'
@@ -136,6 +135,7 @@ const Fuel = ({ delay = 0 }) => {
         exit: { opacity: 0, x: 0, y: 20 }
     }
     const warning = useColorModeValue('orange.600', 'orange.300')
+    const MotionImage = motion(Image)
 
     return (
         <Ramki>
@@ -167,7 +167,9 @@ const Fuel = ({ delay = 0 }) => {
                                 zIndex: -1,
                                 borderRadius: '10px',
                             }}>Fuelify</Heading>
-                        <Image alt='logo' mt={'10px'}
+                        <MotionImage
+                            cursor="zoom-in"
+                            whileTap={{ scale: 8, cursor: "zoom-out" }} alt='logo' mt={'10px'}
                             style={{ imageRendering: "pixelated" }} width={res}
                             height={res} src='/fuelifyicon.png' />
 
@@ -176,46 +178,85 @@ const Fuel = ({ delay = 0 }) => {
                     <Flex flexDir={'column'} lineHeight={'150%'}>
                         <T>Fuelify is a mod for Minecraft: Java edition mod!
                             The mod adds various types of fuels. Insted of boring wood and coal you can use more fascinating fuels!</T>
-                        <Flex mt={'10px'} mb={'10px'} flexDir={{ base: 'column', lg: 'row' }} w={'100%'} justifyContent={'center'}>
-                            <Flex w={'100%'} justifyContent={{ base: 'center', lg: 'right' }}>
+                        <SimpleGrid minChildWidth='180px' spacing='1px' spacingY={'10px'} mb={'5px'}>
 
-                                <Flex maxW={'180px'} h={'50px'} justifyContent={'space-between'} alignItems={'center'} px={'2px'} mr={'10px'}>
-                                    <Image alt="fabric" w={'40px'} src="fabriclogo.png" mr={'10px'} />
-                                    <Flex flexDir={'column'} fontFamily={'Work Sans'}>
-                                        <Text textAlign={'left'} fontWeight={'normal'}>Requies</Text>
-                                        <Text fontSize={'md'} mt={'-3px'} fontWeight={'bold'}>Fabric API</Text>
-                                    </Flex>
+                            <Box h={'50px'} display={'flex'} justifyContent={'space-evenly'} alignItems={'center'} px={'2px'} mr={'10px'}>
+                                <Image alt="fabric" w={'40px'} src="fabriclogo.png" />
+                                <Flex flexDir={'column'} fontFamily={'Work Sans'}>
+                                    <Text textAlign={'left'} fontWeight={'normal'}>Requies</Text>
+                                    <Text fontSize={'md'} mt={'-3px'} fontWeight={'bold'}>Fabric API</Text>
                                 </Flex>
+                            </Box>
 
-                                <Flex maxW={'180px'} h={'50px'} justifyContent={'space-between'} alignItems={'center'} px={'2px'} mr={'10px'}>
-                                    <Image alt="fabric" w={'40px'} src="fabriclogo.png" mr={'5px'} />
-                                    <Flex flexDir={'column'} fontFamily={'Work Sans'}>
-                                        <Text>Fabric</Text>
-                                        <Text fontSize={'sm'}>1.16.5 | 1.17.1 | 1.18.1</Text>
+                            <Box h={'50px'} display={'flex'} justifyContent={'space-evenly'} alignItems={'center'} px={'2px'} mr={'10px'}>
+                                <Image alt="fabric" w={'40px'} src="fabriclogo.png" mr={'5px'} />
+                                <Flex flexDir={'column'} fontFamily={'Work Sans'}>
+                                    <Text>Fabric</Text>
+                                    <Text fontSize={'sm'}>
 
-                                    </Flex>
+                                        {Games.map((Game) => {
+                                            return <>
+                                                {/* <Text>{Game.id}</Text> */}
+                                                {Game.id == 2 ? <>
+                                                    {Game.versions.map((version) => {
+                                                        return <>
+                                                            {version}
+                                                            <chakra.span _last={{ display: 'none' }}> | </chakra.span>
+                                                        </>
+                                                    })}
+                                                </> : <></>}
+                                            </>
+                                        })}
+
+                                    </Text>
+
                                 </Flex>
+                            </Box>
 
-                            </Flex>
-                            <Flex w={'100%'} justifyContent={{ base: 'center', lg: 'left' }}>
+                            {Games.map((Game) => {
+                                return <>
+                                    {/* <Text>{Game.id}</Text> */}
+                                    {Game.id == 3 ? <>
+                                        {Game.dependencies.map((dependent) => {
+                                            return (
+                                                <Box h={'50px'} key={dependent.id} >
+                                                    <Link display={'flex'} href={dependent.link} target="_blank" justifyContent={'space-evenly'} alignItems={'center'} px={'2px'} mr={'10px'}>
+                                                        <Image alt='fabric' w={'40px'} src={dependent.icon} mr={'10px'} style={{ imageRendering: 'pixelated' }} />
+                                                        <Flex flexDir={'column'} fontFamily={'Work Sans'}>
+                                                            <Text textAlign={'left'} fontWeight={'normal'}>Requies</Text>
+                                                            <Text fontSize={'md'} mt={'-3px'} fontWeight={'bold'}>{dependent.name}</Text>
+                                                        </Flex>
+                                                    </Link>
+                                                </Box>
+                                            )
+                                        })}
+                                    </> : <></>}
+                                </>
+                            })}
+                            <Box h={'50px'} display={'flex'} justifyContent='center' alignItems={'center'}>
                                 <script>splitbee.track(&ldquo;Github&ldquo;)</script>
-                                <Link data-splitbee-event="Github" href="https://github.com/ImExoOdeex/Fuelify" mr='10px' _hover="none">
-                                    <Flex maxW={'180px'} h={'50px'} justifyContent={'center'} alignItems={'center'} px={'2px'} mr={'10px'} fontFamily={'Work Sans'}>
+                                <Link data-splitbee-event="Github" href="https://github.com/ImExoOdeex/Fuelify" mr='10px' _hover="none" alignItems='center'>
+                                    <Flex maxW={'180px'} justifyContent={'space-evenly'} alignItems={'center'} px={'2px'} mr={'10px'} fontFamily={'Work Sans'} m={'auto'} >
                                         <Image alt="octocat" w={'40px'} src="octocat.png" mr={'5px'} />
                                         <Text fontWeight={'extrabold'} letterSpacing={'2px'}>Github</Text>
                                     </Flex>
                                 </Link>
-
-                                <Link bg="red.500" rounded='lg' color='white' _disabled={true} _hover={'none'} href="https://www.curseforge.com/minecraft/mc-mods/squirting-syringe" mr='10px'>
-                                    <Flex fontFamily={"Work Sans"} px={'2px'} fontSize={'14px'} h={'50px'} bg={'transparent'} w={'auto'}
-                                        rounded={'md'} alignItems={'center'} justifyContent={'center'}>
-                                        <DownloadIcon color={'color'} mr={'3px'} />Download from curseforge
+                            </Box>
+                            <Box bg="red.500" rounded='lg' h={'50px'} display={'flex'} justifyContent='center' alignItems={'center'} mr='10px' >
+                                <Link _disabled={true} _hover={'none'} href="https://www.curseforge.com/minecraft/mc-mods/squirting-syringe" alignItems='center'>
+                                    <Flex m={'auto'} fontFamily={"Work Sans"} px={'2px'} fontSize={'14px'} bg={'transparent'} w={'auto'}
+                                        rounded={'md'} alignItems={'center'} justifyContent={'space-evenly'}>
+                                        <DownloadIcon color={'color'} mr={'3px'} /><Text>Download from curseforge</Text>
                                     </Flex>
                                 </Link>
-                            </Flex>
-                        </Flex>
-                        <Heading id="Syringes" fontWeight={'normal'} letterSpacing={'2px'} textAlign={'center'} as='h3' fontSize={'20px'}>
-                            All available fuels: {fuels}</Heading>
+                            </Box>
+
+
+
+
+                        </SimpleGrid>
+                        {/* <Heading id="Syringes" fontWeight={'normal'} letterSpacing={'2px'} textAlign={'center'} as='h3' fontSize={'20px'}>
+                            All available fuels: {fuels}</Heading> */}
                         <Heading textAlign={'center'} as='h3' fontSize={'20px'}>
                             Docs for all fuels in the mod:</Heading>
                     </Flex>
@@ -295,8 +336,8 @@ const Fuel = ({ delay = 0 }) => {
                                 </TabPanel>
                                 <TabPanel>
                                     <Flex flexDir={'column'}>
-                                        <Flex mb={2} justifyContent={'center'}><Heading fontSize={'14px'} color={warning}>{Fuels.warning}</Heading>
-                                        </Flex>
+                                        {Fuels.warning !== "" ? <Flex mb={2} justifyContent={'center'}><Heading fontSize={'14px'} color={warning}>{Fuels.warning}</Heading></Flex> : <></>}
+
                                         <Flex w={'100%'} flexDir={{ base: 'column', md: 'row' }}>
 
                                             {/* lewo */}
@@ -367,12 +408,10 @@ const Fuel = ({ delay = 0 }) => {
                                                             <Tr>
                                                                 <MotionTd justifyContent={'center'} alignItems={'center'}
                                                                     padding={'0'} borderColor="bg">
-                                                                    <Tooltip label={Fuels.icon} hasArrow>
-                                                                        <Image style={{ imageRendering: "pixelated" }}
-                                                                            alt={Fuels.icon} w={'40px'}
-                                                                            src={Fuels.icon} margin={'auto'} />
-                                                                    </Tooltip>
-                                                                        <Text pos={'absolute'} mt='-4' ml={'9'}>{Fuels.count}</Text>
+                                                                    <Image style={{ imageRendering: "pixelated" }}
+                                                                        alt={Fuels.icon} w={'40px'}
+                                                                        src={Fuels.icon} margin={'auto'} />
+                                                                    <Text pos={'absolute'} mt='-4' ml={'9'}>{Fuels.count}</Text>
                                                                 </MotionTd>
                                                             </Tr>
                                                         </Tbody>
@@ -431,7 +470,7 @@ const Fuel = ({ delay = 0 }) => {
 
                     <Flex w={'100%'} flexDir={'column'} h={'100%'} bg={bg} p={5} rounded={'xl'} textAlign={'left'} style={{ WebkitAlignItems: 'left' }}>
                         You can find fuels in mineshaft or desert pyramid chests.
-                        <Flex m={{base: 0, md: 5}} flexDir='column'>
+                        <Flex m={{ base: 0, md: 5 }} flexDir='column'>
                             <Image rounded={'lg'} alt="Fuelify loot tables" src="https://ik.imagekit.io/o532f5vcp38/tr:w-1000/2022-02-05_14.33.52_ouGdaKzA9.png?ik-sdk-version=javascript-1.4.3&updatedAt=1644068049121" />
                             <Text fontSize={'10px'}>Shaders: complementary shaders</Text>
                         </Flex>

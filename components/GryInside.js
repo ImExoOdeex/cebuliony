@@ -1,5 +1,5 @@
 import Ramki from './ramki';
-import { Image, Flex, useColorModeValue, Heading, Text } from '@chakra-ui/react';
+import { Image, Flex, useColorModeValue, Heading, Text, chakra } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Link from './Link'
 import Games from './jsons/games.json'
@@ -56,10 +56,35 @@ export default function GryInside({ delay = 0 }) {
                                                 <Image alt='fabric' w={'40px'} src="fabriclogo.png" mr={'5px'} />
                                                 <Flex flexDir={'column'} fontFamily={'Work Sans'}>
                                                     <Text>Fabric</Text>
-                                                    <Text fontSize={'sm'}>1.16.5 | 1.17.1 | 1.18.1</Text>
+                                                    <Text fontSize={'sm'}>
+
+                                                        {Games.versions.map((version) => {
+                                                            return (
+                                                                <>
+                                                                    {version}
+                                                                    <chakra.span _last={{ display: 'none' }}> | </chakra.span>
+                                                                </>
+                                                            )
+                                                        })}
+
+                                                    </Text>
 
                                                 </Flex>
                                             </Flex>
+
+                                            {Games.dependencies.map((dependent) => {
+                                                return (
+                                                    <Flex key={dependent.id} maxW={'180px'} h={'50px'} justifyContent={'space-between'} alignItems={'center'} px={'2px'} mr={'10px'}>
+                                                        <Image alt='fabric' w={'40px'} src={dependent.icon} mr={'10px'} style={{ imageRendering: 'pixelated' }} />
+                                                        <Flex flexDir={'column'} fontFamily={'Work Sans'}>
+                                                            <Text textAlign={'left'} fontWeight={'normal'}>Requies</Text>
+                                                            <Text fontSize={'md'} mt={'-3px'} fontWeight={'bold'}>{dependent.name}</Text>
+                                                        </Flex>
+                                                    </Flex>
+                                                )
+                                            })}
+
+
                                         </Flex>
                                         <Text>{Games.infododaje}</Text>
                                         <Text>Kliknij, aby zobaczyć więcej</Text>

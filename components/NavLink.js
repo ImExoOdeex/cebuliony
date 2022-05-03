@@ -35,7 +35,7 @@ export default function Nav() {
                             <Image alt='www.cebuliony.pl' w={50} h={50} src='https://ik.imagekit.io/o532f5vcp38/cebulka144_89RRv6pjX.png?updatedAt=1628272464533' />
                         </Link>
                         <Link letterSpacing={'3px'} fontWeight={'bold'} color='primary' as="a"
-                            alignItems={'center'} fontSize={{base: '13px', md: '15px'}} textShadow={color}
+                            alignItems={'center'} fontSize={{ base: '13px', md: '15px' }} textShadow={color}
                             justifyContent={'center'}
                             verticalAlign={'middle'}
                             href='/'
@@ -61,7 +61,7 @@ export default function Nav() {
                             <Link href='/gry' _hover={{
                                 opacity: '0.5',
                             }}
-                                transition={'0.05s'}>Gry</Link >
+                                transition={'0.05s'}>Mody</Link >
                         </HStack>
                         <script>splitbee.track(&ldquo;theme&ldquo;)</script>
                         <Button data-splitbee-event="theme" onClick={toggleColorMode} aria-label="Justify" > {colorMode === 'dark' ? < SunIcon /> : < MoonIcon />}
@@ -83,7 +83,7 @@ export default function Nav() {
                                             <MenuItem>Quiz</MenuItem>
                                         </Link>
                                         <Link _hover={'none'} href='/gry'>
-                                            <MenuItem>Gry</MenuItem>
+                                            <MenuItem>Mody</MenuItem>
                                         </Link>
                                     </MenuList>
                                 </>

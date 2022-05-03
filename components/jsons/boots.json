@@ -1,0 +1,78 @@
+[
+    {
+        "id": 1,
+        "name": "Spectre boots",
+        "info": "Fly into the air and walk faster!",
+        "duration": "7s flying & endless speed",
+        "rarity": "epic",
+        "attributes": "flying and 7.5% movement speed",
+        "icon": "spectreboots.png",
+        "ingredients": [
+            "Rocket boots",
+            "Hermes boots"
+        ],
+        "ingredients_texture": [
+            "rocketboots.png",
+            "hermesboots.png",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": ""
+    },
+    {
+        "id": 2,
+        "name": "Rocket boots",
+        "info": "Allows you to fly and not die from falling.",
+        "duration": "5s flying",
+        "rarity": "uncommon",
+        "attributes": "flying",
+        "icon": "rocketboots.png",
+        "ingredients": [
+
+        ],
+        "ingredients_texture": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": "WIP"
+    },
+    {
+        "id": 3,
+        "name": "Hermes boots",
+        "info": "Faster walking.",
+        "duration": "endless",
+        "rarity": "common",
+        "attributes": "7.5% movement speed",
+        "icon": "hermesboots.png",
+        "ingredients": [
+
+        ],
+        "ingredients_texture": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "crafting": "shapeless",
+        "warning": "WIP"
+    }
+]

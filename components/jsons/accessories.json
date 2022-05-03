@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "name": "Horseshoe",
+    "info": "Negates 80% of fall damage",
+    "duration": "",
+    "rarity": "common",
+    "attributes": "",
+    "icon": "horseshoe.png",
+    "ingredients": [],
+    "ingredients_texture": ["", "", "", "", "", "", "", "", ""],
+    "crafting": "shapeless",
+    "warning": "WIP"
+  },
+  {
+    "id": 2,
+    "name": "Balloon",
+    "info": "Slower falling",
+    "duration": "",
+    "rarity": "common",
+    "attributes": "",
+    "icon": "balloon.png",
+    "ingredients": [],
+    "ingredients_texture": ["", "", "", "", "", "", "", "", ""],
+    "crafting": "shapeless",
+    "warning": "WIP"
+  },
+  {
+    "id": 3,
+    "name": "Bezoar",
+    "info": "Immunity to poison",
+    "duration": "",
+    "rarity": "common",
+    "attributes": "",
+    "icon": "bezoar.png",
+    "ingredients": [],
+    "ingredients_texture": ["", "", "", "", "", "", "", "", ""],
+    "crafting": "shapeless",
+    "warning": "WIP"
+  }
+]

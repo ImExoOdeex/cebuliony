@@ -19,7 +19,9 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   useToast,
-  Tooltip,
+  chakra,
+  Box,
+  SimpleGrid
 } from "@chakra-ui/react";
 import Ramki from "./ramki";
 import T from "./T";
@@ -28,6 +30,7 @@ import { motion } from "framer-motion";
 import Link from "./Link";
 import Syringes from "./jsons/syringes.json";
 import React from "react";
+import Games from "./jsons/games.json";
 
 const Syringetemplate = ({
   delay = 0,
@@ -177,40 +180,40 @@ const Syringetemplate = ({
                   <Table border={"1px"} w={"100px"}>
                     <Tbody>
                       <Tr>
-                        <Td border={"1px"} borderColor="#808080" padding={0}>
+                        <MotionTd border={"1px"} borderColor="#808080" padding={0}>
                           {/* 1 miejsce */}
                           {one}
-                        </Td>
-                        <Td border={"1px"} borderColor="#808080" padding={0}>
+                        </MotionTd>
+                        <MotionTd border={"1px"} borderColor="#808080" padding={0}>
                           {/* 2 miejsce */}
                           {two}
-                        </Td>
-                        <Td border={"1px"} borderColor="#808080"></Td>
+                        </MotionTd>
+                        <MotionTd border={"1px"} borderColor="#808080"></MotionTd>
                       </Tr>
                       <Tr>
-                        <Td border={"1px"} borderColor="#808080" padding={0}>
+                        <MotionTd border={"1px"} borderColor="#808080" padding={0}>
                           {/* 4 miejsce */}
                           {four}
-                        </Td>
-                        <Td border={"1px"} borderColor="#808080" padding={0}>
+                        </MotionTd>
+                        <MotionTd border={"1px"} borderColor="#808080" padding={0}>
                           {/* 5 miejsce */}
                           {five}
-                        </Td>
-                        <Td border={"1px"} borderColor="#808080" padding={0}>
+                        </MotionTd>
+                        <MotionTd border={"1px"} borderColor="#808080" padding={0}>
                           {/* 6 miejsce */}
                           {six}
-                        </Td>
+                        </MotionTd>
                       </Tr>
                       <Tr>
-                        <Td border={"1px"} borderColor="#808080"></Td>
-                        <Td border={"1px"} borderColor="#808080" p={"0"}>
+                        <MotionTd border={"1px"} borderColor="#808080"></MotionTd>
+                        <MotionTd border={"1px"} borderColor="#808080" p={"0"}>
                           {/* 8 miejsce */}
                           {eight}
-                        </Td>
-                        <Td border={"1px"} borderColor="#808080" padding={0}>
+                        </MotionTd>
+                        <MotionTd border={"1px"} borderColor="#808080" padding={0}>
                           {/* 9 miejsce */}
                           {nine}
-                        </Td>
+                        </MotionTd>
                       </Tr>
                     </Tbody>
                   </Table>
@@ -218,7 +221,7 @@ const Syringetemplate = ({
                   <Table border={"1px"} w={"50px"} h={"50px"}>
                     <Tbody>
                       <Tr>
-                        <Td
+                        <MotionTd
                           justifyContent={"center"}
                           alignItems={"center"}
                           padding={"0"}
@@ -231,7 +234,7 @@ const Syringetemplate = ({
                             src={icon}
                             margin={"auto"}
                           />
-                        </Td>
+                        </MotionTd>
                       </Tr>
                     </Tbody>
                   </Table>
@@ -298,6 +301,42 @@ const Links = ({ delay = 0 }) => {
             Items
           </BreadcrumbLink>
         </BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbLink
+            onClick={() =>
+              toast({
+                title: "Effects",
+                description: "Navigating to effects",
+                status: "success",
+                duration: duration,
+                isClosable: false,
+                variant: "left-accent",
+                position: "bottom-right",
+              })
+            }
+            href="#Effects"
+          >
+            Effects
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbLink
+            onClick={() =>
+              toast({
+                title: "Loot",
+                description: "Navigating to loot",
+                status: "success",
+                duration: duration,
+                isClosable: false,
+                variant: "left-accent",
+                position: "bottom-right",
+              })
+            }
+            href="#Loot"
+          >
+            Loot
+          </BreadcrumbLink>
+        </BreadcrumbItem>
       </Breadcrumb>
     </motion.div>
   );
@@ -330,15 +369,13 @@ const He = ({ children, delay = 0, ...props }) => {
 };
 const Craft = ({ source }) => {
   return (
-    <Tooltip label={source} hasArrow>
-      <Image
-        style={{ imageRendering: "pixelated" }}
-        src={source}
-        alt={source}
-        w={"40px"}
-        margin={"auto"}
-      />
-    </Tooltip>
+    <Image
+      style={{ imageRendering: "pixelated" }}
+      src={source}
+      alt={source}
+      w={"40px"}
+      margin={"auto"}
+    />
   );
 };
 
@@ -357,8 +394,8 @@ function MotionTd({ children, ...props }) {
 }
 
 const Syringe = ({ delay = 0 }) => {
-  const syringes = "7";
-  const items = "1";
+  const syringes = "10";
+  const items = "1 empty syringe";
   const span = useColorModeValue("green.300", "green.600");
   const bg = useColorModeValue("#ebebeb", "#1f1f1f");
   const color = useColorModeValue("#000", "#fff");
@@ -369,6 +406,7 @@ const Syringe = ({ delay = 0 }) => {
     enter: { opacity: 1, x: 0, y: 0 },
     exit: { opacity: 0, x: 0, y: 20 },
   };
+  const MotionImage = motion(Image);
   return (
     <Ramki>
       <motion.div
@@ -418,7 +456,9 @@ const Syringe = ({ delay = 0 }) => {
             >
               Squirting Syringe
             </Heading>
-            <Image
+            <MotionImage
+              cursor="zoom-in"
+              whileTap={{ scale: 8, cursor: "zoom-out" }}
               alt="logo"
               mt={"10px"}
               style={{ imageRendering: "pixelated" }}
@@ -437,119 +477,97 @@ const Syringe = ({ delay = 0 }) => {
             <Flex
               mt={"10px"}
               mb={"10px"}
-              flexDir={{ base: "column", lg: "row" }}
+              flexDir={'column'}
               w={"100%"}
               justifyContent={"center"}
             >
-              <Flex w={"100%"} justifyContent={{ base: "center", lg: "right" }}>
-                <Flex
-                  maxW={"180px"}
-                  h={"50px"}
-                  justifyContent={"space-between"}
-                  alignItems={"center"}
-                  px={"2px"}
-                  mr={"10px"}
-                >
-                  <Image
-                    alt="fabric"
-                    w={"40px"}
-                    src="fabriclogo.png"
-                    mr={"10px"}
-                  />
-                  <Flex flexDir={"column"} fontFamily={"Work Sans"}>
-                    <Text textAlign={"left"} fontWeight={"normal"}>
-                      Requies
-                    </Text>
-                    <Text fontSize={"md"} mt={"-3px"} fontWeight={"bold"}>
-                      Fabric API
-                    </Text>
-                  </Flex>
-                </Flex>
+              <SimpleGrid minChildWidth='180px' spacing='1px' spacingY={'10px'} mb={'5px'}>
 
-                <Flex
-                  maxW={"180px"}
-                  h={"50px"}
-                  justifyContent={"space-between"}
-                  alignItems={"center"}
-                  px={"2px"}
-                  mr={"10px"}
-                >
-                  <Image
-                    alt="fabric"
-                    w={"40px"}
-                    src="fabriclogo.png"
-                    mr={"5px"}
-                  />
-                  <Flex flexDir={"column"} fontFamily={"Work Sans"}>
+                <Box h={'50px'} display={'flex'} justifyContent={'space-evenly'} alignItems={'center'} px={'2px'} mr={'10px'}>
+                  <Image alt="fabric" w={'40px'} src="fabriclogo.png" />
+                  <Flex flexDir={'column'} fontFamily={'Work Sans'}>
+                    <Text textAlign={'left'} fontWeight={'normal'}>Requies</Text>
+                    <Text fontSize={'md'} mt={'-3px'} fontWeight={'bold'}>Fabric API</Text>
+                  </Flex>
+                </Box>
+
+                <Box h={'50px'} display={'flex'} justifyContent={'space-evenly'} alignItems={'center'} px={'2px'} mr={'10px'}>
+                  <Image alt="fabric" w={'40px'} src="fabriclogo.png" mr={'5px'} />
+                  <Flex flexDir={'column'} fontFamily={'Work Sans'}>
                     <Text>Fabric</Text>
-                    <Text fontSize={"sm"}>1.16.5 | 1.17.1 | 1.18.1</Text>
-                  </Flex>
-                </Flex>
-              </Flex>
-              <Flex w={"100%"} justifyContent={{ base: "center", lg: "left" }}>
-                <script>splitbee.track(&ldquo;Github&ldquo;)</script>
-                <Link
-                  data-splitbee-event="Github"
-                  href="https://github.com/ImExoOdeex/squirting-syringe"
-                  mr="10px"
-                  _hover="none"
-                >
-                  <Flex
-                    maxW={"180px"}
-                    h={"50px"}
-                    justifyContent={"center"}
-                    alignItems={"center"}
-                    px={"2px"}
-                    mr={"10px"}
-                    fontFamily={"Work Sans"}
-                  >
-                    <Image
-                      alt="octocat"
-                      w={"40px"}
-                      src="octocat.png"
-                      mr={"5px"}
-                    />
-                    <Text fontWeight={"extrabold"} letterSpacing={"2px"}>
-                      Github
-                    </Text>
-                  </Flex>
-                </Link>
+                    <Text fontSize={'sm'}>
 
-                <Link
-                  _hover={"none"}
-                  href="https://www.curseforge.com/minecraft/mc-mods/squirting-syringe"
-                  mr="10px"
-                >
-                  <Flex
-                    fontFamily={"Work Sans"}
-                    px={"2px"}
-                    fontSize={"14px"}
-                    h={"50px"}
-                    bg={"transparent"}
-                    w={"auto"}
-                    rounded={"md"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
-                  >
-                    <DownloadIcon color={"color"} mr={"3px"} />
-                    Download from curseforge
+                      {Games.map((Game) => {
+                        return <>
+                          {/* <Text>{Game.id}</Text> */}
+                          {Game.id == 1 ? <>
+                            {Game.versions.map((version) => {
+                              return <>
+                                {version}
+                                <chakra.span _last={{ display: 'none' }}> | </chakra.span>
+                              </>
+                            })}
+                          </> : <></>}
+                        </>
+                      })}
+
+                    </Text>
+
                   </Flex>
-                </Link>
-              </Flex>
+                </Box>
+
+                {Games.map((Game) => {
+                  return <>
+                    {/* <Text>{Game.id}</Text> */}
+                    {Game.id == 1 ? <>
+                      {Game.dependencies.map((dependent) => {
+                        return (
+                          <Box h={'50px'} key={dependent.id} >
+                            <Link display={'flex'} href={dependent.link} target="_blank" justifyContent={'space-evenly'} alignItems={'center'} px={'2px'} mr={'10px'}>
+                              <Image alt='fabric' w={'40px'} src={dependent.icon} mr={'10px'} style={{ imageRendering: 'pixelated' }} />
+                              <Flex flexDir={'column'} fontFamily={'Work Sans'}>
+                                <Text textAlign={'left'} fontWeight={'normal'}>Requies</Text>
+                                <Text fontSize={'md'} mt={'-3px'} fontWeight={'bold'}>{dependent.name}</Text>
+                              </Flex>
+                            </Link>
+                          </Box>
+                        )
+                      })}
+                    </> : <></>}
+                  </>
+                })}
+                <Box h={'50px'} display={'flex'} justifyContent='center' alignItems={'center'}>
+                  <script>splitbee.track(&ldquo;Github&ldquo;)</script>
+                  <Link data-splitbee-event="Github" href="https://github.com/ImExoOdeex/squirtingsyringe" mr='10px' _hover="none" alignItems='center'>
+                    <Flex maxW={'180px'} justifyContent={'space-evenly'} alignItems={'center'} px={'2px'} mr={'10px'} fontFamily={'Work Sans'} m={'auto'} >
+                      <Image alt="octocat" w={'40px'} src="octocat.png" mr={'5px'} />
+                      <Text fontWeight={'extrabold'} letterSpacing={'2px'}>Github</Text>
+                    </Flex>
+                  </Link>
+                </Box>
+                <Box rounded='lg' h={'50px'} display={'flex'} justifyContent='center' alignItems={'center'} mr='10px' >
+                  <Link _disabled={true} _hover={'none'} href="https://www.curseforge.com/minecraft/mc-mods/squirting-syringe" alignItems='center'>
+                    <Flex m={'auto'} fontFamily={"Work Sans"} px={'2px'} fontSize={'14px'} bg={'transparent'} w={'auto'}
+                      rounded={'md'} alignItems={'center'} justifyContent={'space-evenly'}>
+                      <DownloadIcon color={'color'} mr={'3px'} /><Text>Download from curseforge</Text>
+                    </Flex>
+                  </Link>
+                </Box>
+              </SimpleGrid>
+              <Heading
+                id="Syringes"
+                fontWeight={"normal"}
+                letterSpacing={"2px"}
+                textAlign={"center"}
+                as="h3"
+                fontSize={"20px"}
+              >
+                All available syringes ({syringes} + {items})
+              </Heading>
+              <Heading textAlign={"center"} as="h3" fontSize={"20px"}>
+                Docs for all syringes in the mod:
+              </Heading>
             </Flex>
-            <Heading
-              id="Syringes"
-              fontWeight={"normal"}
-              letterSpacing={"2px"}
-              textAlign={"center"}
-              as="h3"
-              fontSize={"20px"}
-            >
-              All available syringes ({syringes} + {items})
-            </Heading>
-            <Heading textAlign={"center"} as="h3" fontSize={"20px"}>
-              Docs for all syringes in the mod:
-            </Heading>
           </Flex>
         </Flex>
       </motion.div>
@@ -702,9 +720,7 @@ const Syringe = ({ delay = 0 }) => {
                               {Syringes.ingredients.map((ingredient) => {
                                 return (
                                   <>
-                                    {/* <Tooltip key={ingredient} label={ingredient}> */}
                                     <li>{ingredient}</li>
-                                    {/* </Tooltip>  */}
                                   </>
                                 );
                               })}
@@ -724,24 +740,20 @@ const Syringe = ({ delay = 0 }) => {
                                     padding={0}
                                   >
                                     {/* 1 miejsce */}
-                                    <Tooltip label="Hujfgdfgdf" fontSize="md">
-                                      <Craft
-                                        source={Syringes.ingredients_texture[0]}
-                                      ></Craft>
-                                    </Tooltip>
+                                    <Craft
+                                      source={Syringes.ingredients_texture[0]}
+                                    ></Craft>
                                   </MotionTd>
-                                  <Tooltip label="Hujfgdfgdf" fontSize="md">
-                                    <MotionTd
-                                      whileHover={{ scale: 2 }}
-                                      border={"1px"}
-                                      padding={0}
-                                    >
-                                      {/* 2 miejsce */}
-                                      <Craft
-                                        source={Syringes.ingredients_texture[1]}
-                                      ></Craft>
-                                    </MotionTd>
-                                  </Tooltip>
+                                  <MotionTd
+                                    whileHover={{ scale: 2 }}
+                                    border={"1px"}
+                                    padding={0}
+                                  >
+                                    {/* 2 miejsce */}
+                                    <Craft
+                                      source={Syringes.ingredients_texture[1]}
+                                    ></Craft>
+                                  </MotionTd>
                                   <MotionTd border={"1px"} padding={0}>
                                     {/* 3 miejsce */}
                                     <Craft
@@ -805,15 +817,13 @@ const Syringe = ({ delay = 0 }) => {
                                     padding={"0"}
                                     borderColor="bg"
                                   >
-                                    <Tooltip label={Syringes.icon} hasArrow>
-                                      <Image
-                                        style={{ imageRendering: "pixelated" }}
-                                        alt={Syringes.icon}
-                                        w={"40px"}
-                                        src={Syringes.icon}
-                                        margin={"auto"}
-                                      />
-                                    </Tooltip>
+                                    <Image
+                                      style={{ imageRendering: "pixelated" }}
+                                      alt={Syringes.icon}
+                                      w={"40px"}
+                                      src={Syringes.icon}
+                                      margin={"auto"}
+                                    />
                                   </MotionTd>
                                 </Tr>
                               </Tbody>
@@ -841,6 +851,7 @@ const Syringe = ({ delay = 0 }) => {
         mb="20px"
         letterSpacing="2px"
         fontWeight="900"
+        style={{ scrollMarginTop: "100px" }}
       >
         Items
       </He>
@@ -871,6 +882,95 @@ const Syringe = ({ delay = 0 }) => {
         }
         nine={<Craft source={"/iron_ingot.png"} />}
       />
+
+      <Links />
+      <He
+        fontFamily={"Work Sans"}
+        color="color"
+        margin="0"
+        textAlign="left"
+        ml={{ base: "5px", md: "30px" }}
+        mb="20px"
+        letterSpacing="2px"
+        fontWeight="900" id="Effects"
+        style={{ scrollMarginTop: "100px" }}>Effects</He>
+      <motion.div
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={variants}
+        transition={{ duration: 0.5, delay }}>
+        <Flex mb={'60px'} flexDir={'col'} bg={bg} p='5' rounded={'lg'} >
+          <Flex
+            w={"100%"}
+            flexDir={{ base: "column", md: "row" }}
+            h={"100%"}
+            justifyContent={"space-evenly"}
+          >
+            <Flex
+              w={{ base: "100%", md: "40%" }}
+              textAlign={"left"}
+              flexDir={"column"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              <Heading fontSize="25px">Focus effect</Heading>
+              <Image
+                alt={'focus effect'}
+                mt={"10px"}
+                style={{ imageRendering: "pixelated" }}
+                width={res}
+                height={res}
+                src={"focus_effect.png"}
+              />
+            </Flex>
+            <Flex
+              flexDir={"column"}
+              px={{ base: "0px", md: "100px" }}
+            >
+              <Flex
+                w={"100%"}
+                textAlign={"center"}
+                alignItems="center"
+                flexDir={"column"}
+              >
+                Focus effect doubles your experience orb value, so you can exp more and faster. Available in focus syringe.
+              </Flex>
+              <Flex mt={"10px"}>
+                <video width={'1000px'} height='400px' controls style={{ margin: 'auto', borderRadius: '7px' }}>
+                  <source src="mcfocus.mp4" />
+                </video>
+              </Flex>
+            </Flex>
+          </Flex>
+        </Flex>
+      </motion.div>
+      <Links />
+      <He
+        id='Loot'
+        fontFamily={"Work Sans"}
+        color="color"
+        margin="0"
+        textAlign="left"
+        ml={{ base: "5px", md: "30px" }}
+        mb="20px"
+        letterSpacing="2px"
+        fontWeight="900"
+        style={{ scrollMarginTop: "100px" }}>Loot</He>
+      <motion.div
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={variants}
+        transition={{ duration: 0.5, delay }}>
+        <Flex flexDir={'column'} mb={'60px'} bg={bg} p='5' rounded={'lg'} >
+          <Text mx={'auto'}>Syringes can be found in every valnilla minecraft chests.</Text>
+          <Box mx='auto' mt={5} maxW={'600px'}>
+            <Image src="loot.png" alt="loot" w='100%' h={'auto'} rounded={'md'} />
+            <Text textAlign={'left'} fontSize={'12px'} opacity='0.7'>Mining syringe in mineshaft chest.</Text>
+          </Box>
+        </Flex>
+      </motion.div>
     </Ramki>
   );
 };
