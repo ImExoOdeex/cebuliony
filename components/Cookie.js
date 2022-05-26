@@ -1,62 +1,68 @@
-import CookieConsent from "react-cookie-consent";
-import { Box, useColorModeValue } from '@chakra-ui/react'
-
+import { Flex, useColorModeValue, Text, Button, chakra, Image } from '@chakra-ui/react'
+import { AnimatePresence, isValidMotionProp, motion } from 'framer-motion';
+import { React, useState, useEffect } from 'react'
+import { useCookies } from 'react-cookie';
 
 export default function Cookie() {
-    const IMAGEa = 'linear-gradient(198deg, rgb(253 117 179), rgb(255 123 123))'
-    const IMAGEb = 'linear-gradient(198deg, rgb(17, 209, 119), rgb(196 129 235))'
 
-    const IMAGE = useColorModeValue(IMAGEa, IMAGEb)
-    const color = useColorModeValue('#fff', '#fff')
+    const [cookies, setCookie] = useCookies(['cookieConsent']);
+    const [isCookieConsent, setIsCookieConsent] = useState(false);
+
+    useEffect(() => {
+        if (cookies.cookieConsent) {
+            setIsCookieConsent(true);
+        }
+    }, [cookies.cookieConsent]);
+    const setCookieConsent = () => {
+        setCookie('cookieConsent', true, { path: '/' });
+        setIsCookieConsent(true);
+    }
+
+    const ChakraBox = chakra(motion.div, {
+        shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children',
+    })
+
+    const color1 = useColorModeValue('purple.400', 'purple.300');
+    const boxColor = useColorModeValue('#fff', '#131313');
+    const textColor = useColorModeValue('gray.900', 'gray.200');
 
     return (
-        <Box
-            h={'auto'} bottom={'20px'} position={'fixed'} w={'100%'}
-            display={'flex'} justifyContent={'center'}>
-            <Box display={'flex'} marginLeft={'5px'} marginRight={'5px'}
-                _after={{
-                    transition: 'all .3s ease',
-                    content: '""',
-                    w: '100%',
-                    maxW: '700px',
-                    justifyContent: 'center',
-                    margin: 'auto',
-                    alignItems: 'center',
-                    h: '100%',
-                    pos: 'absolute',
-                    top: 2,
-                    backgroundImage: IMAGE,
-                    filter: 'blur(10px)',
-                    zIndex: -1,
-                }}>
-                <CookieConsent
-                    acceptOnScroll={true}
-                    acceptOnScrollPercentage={50}
-                    cookieName="Ciasteczka"
-                    buttonClasses="btn"
-                    style={{
-                        background: IMAGE,
-                        color: color,
-                        borderRadius: '15px',
-                        position: 'relative',
-                        width: '100%',
-                        maxWidth: '1000px',
-                        minHeight: '75px',
-                        padding: 'auto',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                    buttonText="OK"
-                    buttonStyle={{
-                        color: "black",
-                        fontWeight: "bold",
-                        width: '110px',
-                        borderRadius: '8px',
-                    }}
-                >
-                    Cebuliony.pl używają ciasteczek, aby dostarczyć najlepsze treśći.
-                </CookieConsent>
-            </Box>
-        </Box >
+        <AnimatePresence>
+            {!isCookieConsent &&
+                <ChakraBox
+                    initial={!isCookieConsent ? { opacity: 1 } : { opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={!isCookieConsent ? { opacity: 1 } : { opacity: 0 }}
+                    pos="fixed"
+                    bottom="10"
+                    left={[0, 0, 10]}
+                    zIndex="9999">
+                    <ChakraBox
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 200 }}
+                        transition={{ duration: 0.4, type: 'spring', bounce: '0' }}
+                        maxW={'400px'} m='auto' mx={[2, 2, 'auto']} rounded='md' p={7} justifyContent="center" alignItems="center" border='1px solid' borderColor={color1}
+                        bg={boxColor} align="center" display={'flex'} flexDir={'column'}>
+                        <Flex flexDir={'row'}>
+                            <Text fontSize="sm" color={textColor}>
+                                Używamy ciasteczek, aby zapewnić najlepsze doświadczenie wszystkich użytkowników.
+                            </Text>
+                            <Image w={'60px'} src="https://ik.imagekit.io/o532f5vcp38/cookie_yzEnFaENZ.svg?updatedAt=1628271705356" alt='cookie' />
+                        </Flex>
+                        <Button data-splitbee-event="Cookie" colorScheme={'purple'} mt={5} minW='100px'
+                            variant="outline"
+                            onClick={setCookieConsent}
+                            fontWeight='normal'
+                            w={'100%'}
+                        >
+                            OK
+                        </Button>
+                    </ChakraBox>
+                </ChakraBox>
+            }
+            <script>
+                splitbee.track(`Cookie`)
+            </script>
+        </AnimatePresence >
     );
 }

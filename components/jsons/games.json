@@ -1,53 +1,49 @@
 [
-    {
+  {
+    "id": 1,
+    "link": "/squirting_syringe",
+    "name": "Squirting syringe",
+    "icon": "syringeicon.png",
+    "versions": ["1.16.5", "1.17.1", "1.18.2"],
+    "dependencies": [],
+    "infododaje": "Mod dodaje do gry różne rodzaje zastrzyków, które posiadają wiele różnych efektów"
+  },
+  {
+    "id": 2,
+    "link": "/utilities",
+    "name": "Utilities",
+    "icon": "utilitieslogo.png",
+    "versions": ["1.18.1", "1.18.2"],
+    "dependencies": [
+      {
         "id": 1,
-        "link": "/squirting_syringe",
-        "name": "Squirting syringe",
-        "icon": "syringeicon.png",
-        "versions": [
-            "1.16.5",
-            "1.17.1",
-            "1.18.2"
-        ],
-        "dependencies": [
-            
-        ],
-        "infododaje": "Mod dodaje do gry różne rodzaje zastrzyków, które posiadają wiele różnych efektów"
-    },
-    {
+        "name": "Trinkets",
+        "icon": "trinketsicon.png",
+        "link": "https://www.curseforge.com/minecraft/mc-mods/trinkets-fabric"
+      },
+      {
         "id": 2,
-        "link": "/supplementary_accessories",
-        "name": "Supplementary accessories",
-        "icon": "supplementary_accessories.png",
-        "versions": [
-            "1.18.2"
-        ],
-        "dependencies": [
-            {
-                "id": 1,
-                "name": "Trinkets",
-                "icon": "trinketsicon.png",
-                "link": "https://www.curseforge.com/minecraft/mc-mods/trinkets-fabric"
-            }
-        ],
-        "infododaje": "Dodaj do swojej rozgrywki dodatkowe akcesoria, które pomogą ci w grze"
-    },
-    {
-        "id": 3,
-        "link": "/fuelify",
-        "name": "Fuelify",
-        "icon": "fuelifyicon.png",
-        "versions": [
-            "1.18.2"
-        ],
-        "dependencies": [
-            {
-                "id": 1,
-                "name": "Terra blender",
-                "icon": "terrablender.png",
-                "link": "https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric"
-            }
-        ],
-        "infododaje": "Mod dodaje do gry więcej rodzaji paliw, które można użyć jako paliwa w piecu"
-    }
+        "name": "Cloth config",
+        "icon": "cloth.png",
+        "link": "https://www.curseforge.com/minecraft/mc-mods/cloth-config"
+      }
+    ],
+    "infododaje": "Dodaj do swojej rozgrywki dodatkowe akcesoria, które pomogą ci w grze"
+  },
+  {
+    "id": 3,
+    "link": "/fuelify",
+    "name": "Fuelify",
+    "icon": "fuelifyicon.png",
+    "versions": ["1.18.2"],
+    "dependencies": [
+      {
+        "id": 1,
+        "name": "Terra blender",
+        "icon": "terrablender.png",
+        "link": "https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric"
+      }
+    ],
+    "infododaje": "Mod dodaje do gry więcej rodzaji paliw, które można użyć jako paliwa w piecu"
+  }
 ]

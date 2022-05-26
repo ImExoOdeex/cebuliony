@@ -83,8 +83,6 @@ const RegInside = ({ delay = 0 }) => {
                 <OrderedList textAlign="left" lineHeight={'200%'}>
                     <ListItem>Wszystkie zdjęcia na stronie głównej są podjęte darmową <Link color="primary" href={'https://unsplash.com/license'}>licencją</Link>.
                     </ListItem>
-                    <ListItem>Wszystkie zdjęcia SVG są z <Link color="primary" href={'https://www.flaticon.com'}>flaticon.com</Link>.
-                    </ListItem>
                     <ListItem>Logo strony posiada darmową <Link color="primary" href={'https://pixabay.com/pl/service/license/'}>licencję</Link> i pochodzi od <Link color="primary" href={'https://pixabay.com/pl/users/openclipart-vectors-30363/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=161611'}>
                         OpenClipart-Vectors</Link>.
                     </ListItem>
@@ -92,8 +90,19 @@ const RegInside = ({ delay = 0 }) => {
             </T></Normal>
 
 
+            <Hr as="h2" fontSize="24px" mt="20px">§Kontakt</Hr>
+            <Normal maxW="1100px" textAlign="center" pl={{ base: '10px', md: '20px' }}><T>
+                <OrderedList textAlign="left" lineHeight={'200%'}>
+                    <ListItem>Aby skontaktować się z nami możesz wysłać email na
+                        <Link _hover={{ borderBottom: '1px solid' }} color='primary' href={'mailto:kontakt@cebuliony.pl'}> kontakt@cebuliony.pl</Link>. Email
+                        odpowiadający to nanykonto@gmail.com.
+                    </ListItem>
+                </OrderedList>
+            </T></Normal>
 
-        </Ramki>
+
+
+        </Ramki >
     )
 }
 export default RegInside

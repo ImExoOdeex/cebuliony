@@ -85,7 +85,8 @@ const Inside = ({ delay = 0 }) => {
                 </Skeleton>
             </motion.div>
             <He>Cebuliony jako kryptowaluty</He>
-            <Normal><T>Obecnie Cebulionowe kryptowaluty nie istnieją. W internecie istnieją różne zrzutki na powstanie takiej krypto, jednak jest tam 0 wpłacających, a w dodatku założyciele są niezweryfikowani.</T></Normal>
+            <Normal><T>Obecnie projekt <Link _hover={{ borderBottom: '1px solid' }} color='purple.400' href="https://cebullion.io/">Cebullion.io</Link> przejął ster polskiej kryptowaluty. Rozwijany
+                jest rozwijany przez niezależną grupę deweloperów blockchain z Polski. Można go znaleźć pod tagami #CEBULLION oraz #STABLECOIN.</T></Normal>
 
 
 
@@ -120,14 +121,14 @@ const Inside = ({ delay = 0 }) => {
                     transition={{ duration: 0.6, delay }}>
                     <Image marginRight='7px'
                         alt='pewien'
-                        src='https://ik.imagekit.io/o532f5vcp38/tr:w-40/icon_r9AXDu7be.png?updatedAt=1628891729360'
-                        w={'40px'} h={'auto'} rounded='lg'
+                        src='paypal.svg'
+                        w={'140px'} h={'auto'} rounded='lg'
                         VerticalAlign="middle" ></Image>
                 </motion.div>
-                <He mt='0'>Patreon</He></Flex>
+                <He mt='0'></He></Flex>
 
-            <Normal><T>Jeśli masz zamiar wesprzeć Cebuliony możesz to zrobić przez{' '}
-                <Link color='primary' href={'https://www.patreon.com/cebuliony'}> Patreon</Link>.</T></Normal>
+            <Normal><T>Jeśli masz zamiar wesprzeć Cebuliony, możesz przekazać darowiznę przez{' '}
+                <Link color='primary' href={'https://paypal.me/imexoodeex'}> PayPal</Link>.</T></Normal>
 
         </Ramki>
     );

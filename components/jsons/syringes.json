@@ -185,7 +185,7 @@
   },
   {
     "id": 9,
-    "name": "Focus/Clear syringe",
+    "name": "Focus syringe",
     "info": "Doubles your expirience orb value!",
     "uses": 2,
     "duration": "1m",
@@ -208,7 +208,7 @@
   },
   {
     "id": 10,
-    "name": "Remove syringe",
+    "name": "Remove/clear syringe",
     "info": "Clears your status effects. Like milk.",
     "uses": 1,
     "duration": "instant",

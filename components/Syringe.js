@@ -21,7 +21,8 @@ import {
   useToast,
   chakra,
   Box,
-  SimpleGrid
+  SimpleGrid,
+  Badge
 } from "@chakra-ui/react";
 import Ramki from "./ramki";
 import T from "./T";
@@ -553,6 +554,15 @@ const Syringe = ({ delay = 0 }) => {
                     </Flex>
                   </Link>
                 </Box>
+                <Box rounded='lg' h={'50px'} display={'flex'} justifyContent='center' alignItems={'center'} mr='10px' >
+                  <Link _disabled={true} _hover={'none'} href="https://modrinth.com/mod/squirtingsyringe" alignItems='center'>
+                    <Flex m={'auto'} fontFamily={"Work Sans"} px={'2px'} fontSize={'14px'} bg={'transparent'} w={'auto'}
+                      rounded={'md'} alignItems={'center'} justifyContent={'space-evenly'}>
+                      <Image alt="Modrinth" src="modrinth.svg" w={'25px'} />
+                      <Text>Download from Modrinth</Text>
+                    </Flex>
+                  </Link>
+                </Box>
               </SimpleGrid>
               <Heading
                 id="Syringes"
@@ -572,6 +582,40 @@ const Syringe = ({ delay = 0 }) => {
         </Flex>
       </motion.div>
 
+
+
+      <Links />
+      <He
+        id='Entities'
+        fontFamily={"Work Sans"}
+        color="color"
+        margin="0"
+        textAlign="left"
+        ml={{ base: "5px", md: "30px" }}
+        mb="20px"
+        letterSpacing="2px"
+        fontWeight="900"
+        style={{ scrollMarginTop: "100px" }}>Use on entitiy <Badge variant='subtle' colorScheme={'green'}>New</Badge></He>
+      <motion.div
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={variants}
+        transition={{ duration: 0.5, delay }}>
+        <Flex flexDir={'column'} mb={'60px'} bg={bg} p='5' rounded={'lg'} textAlign={'left'}>
+          <Text>Now (in 0.8 mod version) you can use syringes on other entities. It can be zombies, pandas and even other players.</Text>
+          <Flex minW={['350px', '450px', '720px']} maxW={'800px'} h={['210px', '250px', '390px']} mx='auto' mt={5} flexDir='column'>
+            <iframe width="100%" height={'100%'} src="https://www.youtube.com/embed/7z4mq08eqbc" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            <Text opacity={0.5} fontSize='10px'>Poor panda...</Text>
+          </Flex>
+        </Flex>
+      </motion.div>
+
+
+
+
+
+
       <Links />
       <He
         fontFamily={"Work Sans"}
@@ -586,104 +630,39 @@ const Syringe = ({ delay = 0 }) => {
         Syringes
       </He>
 
-      {Syringes.map((Syringes) => {
-        return (
-          <>
-            <motion.div
-              initial="hidden"
-              animate="enter"
-              exit="exit"
-              variants={variants}
-              transition={{ duration: 0.5, delay }}
-            >
-              <Tabs colorScheme="green" variant="enclosed" mb={"60px"}>
-                <TabList borderBottom={"0px"}>
-                  <Tab _selected={{ color: color, bg: bg }}>Info</Tab>
-                  <Tab _selected={{ color: color, bg: bg }}>Crafting</Tab>
-                </TabList>
-                <TabPanels
-                  bg={bg}
-                  borderRadius={"10px"}
-                  borderTopLeftRadius={"0px"}
-                >
-                  <TabPanel>
-                    <Flex
-                      w={"100%"}
-                      flexDir={{ base: "column", md: "row" }}
-                      h={"100%"}
-                      justifyContent={"space-evenly"}
-                    >
+      {
+        Syringes.map((Syringes) => {
+          return (
+            <>
+              <motion.div
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                variants={variants}
+                transition={{ duration: 0.5, delay }}
+              >
+                <Tabs colorScheme="green" variant="enclosed" mb={"60px"}>
+                  <TabList borderBottom={"0px"}>
+                    <Tab _selected={{ color: color, bg: bg }}>Info</Tab>
+                    <Tab _selected={{ color: color, bg: bg }}>Crafting</Tab>
+                  </TabList>
+                  <TabPanels
+                    bg={bg}
+                    borderRadius={"10px"}
+                    borderTopLeftRadius={"0px"}
+                  >
+                    <TabPanel>
                       <Flex
-                        w={{ base: "100%", md: "40%" }}
-                        textAlign={"left"}
-                        flexDir={"column"}
-                        alignItems={"center"}
-                        justifyContent={"center"}
-                      >
-                        <Heading fontSize="25px">{Syringes.name}</Heading>
-                        <Image
-                          alt={Syringes.icon}
-                          mt={"10px"}
-                          style={{ imageRendering: "pixelated" }}
-                          width={res}
-                          height={res}
-                          src={Syringes.icon}
-                        />
-                      </Flex>
-                      <Flex
-                        flexDir={"column"}
-                        px={{ base: "0px", md: "100px" }}
+                        w={"100%"}
+                        flexDir={{ base: "column", md: "row" }}
+                        h={"100%"}
+                        justifyContent={"space-evenly"}
                       >
                         <Flex
-                          w={"100%"}
-                          textAlign={"center"}
-                          alignItems="center"
+                          w={{ base: "100%", md: "40%" }}
+                          textAlign={"left"}
                           flexDir={"column"}
-                        >
-                          {Syringes.info}
-                        </Flex>
-                        <Flex mt={"10px"}>
-                          <Table variant="simple">
-                            <Tbody>
-                              <Tr borderTop={"1px"}>
-                                <Td borderColor={border}>Number of uses</Td>
-                                <Td textAlign={"right"} borderColor={border}>
-                                  {Syringes.uses}
-                                </Td>
-                              </Tr>
-                              <Tr>
-                                <Td borderColor={border}>duration</Td>
-                                <Td textAlign={"right"} borderColor={border}>
-                                  {Syringes.duration}
-                                </Td>
-                              </Tr>
-                              <Tr>
-                                <Td borderColor={border}>amplifier</Td>
-                                <Td textAlign={"right"} borderColor={border}>
-                                  {Syringes.amplifier}
-                                </Td>
-                              </Tr>
-                            </Tbody>
-                          </Table>
-                        </Flex>
-                      </Flex>
-                    </Flex>
-                  </TabPanel>
-                  <TabPanel>
-                    <Flex flexDir={"column"}>
-                      {/* display warining */}
-                      {Syringes.warning !== "" ? (
-                        <Text color="red.300">{Syringes.warning}</Text>
-                      ) : (
-                        <React.Fragment></React.Fragment>
-                      )}
-
-                      <Flex w={"100%"} flexDir={{ base: "column", md: "row" }}>
-                        {/* lewo */}
-                        <Flex
-                          w={{ base: "100%", md: "50%" }}
                           alignItems={"center"}
-                          flexDir={"column"}
                           justifyContent={"center"}
                         >
                           <Heading fontSize="25px">{Syringes.name}</Heading>
@@ -696,149 +675,216 @@ const Syringe = ({ delay = 0 }) => {
                             src={Syringes.icon}
                           />
                         </Flex>
-
-                        {/* Crafting */}
                         <Flex
-                          w={{ base: "100%", md: "70%" }}
-                          textAlign={"center"}
-                          flexDir={{ base: "column", md: "row" }}
+                          flexDir={"column"}
+                          px={{ base: "0px", md: "100px" }}
                         >
                           <Flex
-                            textAlign={{ base: "left", md: "center" }}
-                            ml={{ base: "0%", md: "0px" }}
+                            w={"100%"}
+                            textAlign={"center"}
+                            alignItems="center"
                             flexDir={"column"}
-                            mb={{ base: "20px", md: "0px" }}
-                            mr={{ base: "0px", md: "20px" }}
                           >
-                            <Text>Crafting: {Syringes.crafting}</Text>
-                            <Text textAlign={"left"}>Ingredients:</Text>
-                            <OrderedList
-                              margin={{ base: "left", md: "auto" }}
-                              ml={{ base: "16%", md: "0px" }}
-                              textAlign={"left"}
-                            >
-                              {Syringes.ingredients.map((ingredient) => {
-                                return (
-                                  <>
-                                    <li>{ingredient}</li>
-                                  </>
-                                );
-                              })}
-                            </OrderedList>
+                            {Syringes.info}
                           </Flex>
-                          <Flex
-                            flexDirection={"row"}
-                            alignItems={"center"}
-                            justifyContent="center"
-                          >
-                            <Table border={"1px"} w={"100px"}>
+                          <Flex mt={"10px"}>
+                            <Table variant="simple">
                               <Tbody>
-                                <Tr>
-                                  <MotionTd
-                                    whileHover={{ scale: 2 }}
-                                    border={"1px"}
-                                    padding={0}
-                                  >
-                                    {/* 1 miejsce */}
-                                    <Craft
-                                      source={Syringes.ingredients_texture[0]}
-                                    ></Craft>
-                                  </MotionTd>
-                                  <MotionTd
-                                    whileHover={{ scale: 2 }}
-                                    border={"1px"}
-                                    padding={0}
-                                  >
-                                    {/* 2 miejsce */}
-                                    <Craft
-                                      source={Syringes.ingredients_texture[1]}
-                                    ></Craft>
-                                  </MotionTd>
-                                  <MotionTd border={"1px"} padding={0}>
-                                    {/* 3 miejsce */}
-                                    <Craft
-                                      source={Syringes.ingredients_texture[2]}
-                                    ></Craft>
-                                  </MotionTd>
+                                <Tr borderTop={"1px"}>
+                                  <Td borderColor={border}>Number of uses</Td>
+                                  <Td textAlign={"right"} borderColor={border}>
+                                    {Syringes.uses}
+                                  </Td>
                                 </Tr>
                                 <Tr>
-                                  <MotionTd border={"1px"} padding={0}>
-                                    {/* 4 miejsce */}
-                                    <Craft
-                                      source={Syringes.ingredients_texture[3]}
-                                    ></Craft>
-                                  </MotionTd>
-                                  <MotionTd border={"1px"} padding={0}>
-                                    {/* 5 miejsce */}
-                                    <Craft
-                                      source={Syringes.ingredients_texture[4]}
-                                    ></Craft>
-                                  </MotionTd>
-                                  <MotionTd border={"1px"} padding={0}>
-                                    {/* 6 miejsce */}
-                                    <Craft
-                                      source={Syringes.ingredients_texture[5]}
-                                    ></Craft>
-                                  </MotionTd>
+                                  <Td borderColor={border}>duration</Td>
+                                  <Td textAlign={"right"} borderColor={border}>
+                                    {Syringes.duration}
+                                  </Td>
                                 </Tr>
                                 <Tr>
-                                  <MotionTd border={"1px"} padding={0}>
-                                    {/* 7 miejsce  */}
-                                    <Craft
-                                      source={Syringes.ingredients_texture[6]}
-                                    ></Craft>
-                                  </MotionTd>
-                                  <MotionTd border={"1px"} p={"0"}>
-                                    {/* 8 miejsce */}
-                                    <Craft
-                                      source={Syringes.ingredients_texture[7]}
-                                    ></Craft>
-                                  </MotionTd>
-                                  <MotionTd border={"1px"} padding={0}>
-                                    {/* 9 miejsce */}
-                                    <Craft
-                                      source={Syringes.ingredients_texture[8]}
-                                    ></Craft>
-                                  </MotionTd>
-                                </Tr>
-                              </Tbody>
-                            </Table>
-                            <ArrowForwardIcon
-                              fontSize={"25px"}
-                              mr={"20px"}
-                              ml={"20px"}
-                            />
-                            <Table border={"1px"} w={"50px"} h={"50px"}>
-                              <Tbody>
-                                <Tr>
-                                  <MotionTd
-                                    justifyContent={"center"}
-                                    alignItems={"center"}
-                                    padding={"0"}
-                                    borderColor="bg"
-                                  >
-                                    <Image
-                                      style={{ imageRendering: "pixelated" }}
-                                      alt={Syringes.icon}
-                                      w={"40px"}
-                                      src={Syringes.icon}
-                                      margin={"auto"}
-                                    />
-                                  </MotionTd>
+                                  <Td borderColor={border}>amplifier</Td>
+                                  <Td textAlign={"right"} borderColor={border}>
+                                    {Syringes.amplifier}
+                                  </Td>
                                 </Tr>
                               </Tbody>
                             </Table>
                           </Flex>
                         </Flex>
                       </Flex>
-                    </Flex>
-                  </TabPanel>
-                </TabPanels>
-              </Tabs>
-            </motion.div>
-          </>
-        );
-      })}
+                    </TabPanel>
+                    <TabPanel>
+                      <Flex flexDir={"column"}>
+                        {/* display warining */}
+                        {Syringes.warning !== "" ? (
+                          <Text color="red.300">{Syringes.warning}</Text>
+                        ) : (
+                          <React.Fragment></React.Fragment>
+                        )}
+
+                        <Flex w={"100%"} flexDir={{ base: "column", md: "row" }}>
+                          {/* lewo */}
+                          <Flex
+                            w={{ base: "100%", md: "50%" }}
+                            alignItems={"center"}
+                            flexDir={"column"}
+                            justifyContent={"center"}
+                          >
+                            <Heading fontSize="25px">{Syringes.name}</Heading>
+                            <Image
+                              alt={Syringes.icon}
+                              mt={"10px"}
+                              style={{ imageRendering: "pixelated" }}
+                              width={res}
+                              height={res}
+                              src={Syringes.icon}
+                            />
+                          </Flex>
+
+                          {/* Crafting */}
+                          <Flex
+                            w={{ base: "100%", md: "70%" }}
+                            textAlign={"center"}
+                            flexDir={{ base: "column", md: "row" }}
+                          >
+                            <Flex
+                              textAlign={{ base: "left", md: "center" }}
+                              ml={{ base: "0%", md: "0px" }}
+                              flexDir={"column"}
+                              mb={{ base: "20px", md: "0px" }}
+                              mr={{ base: "0px", md: "20px" }}
+                            >
+                              <Text>Crafting: {Syringes.crafting}</Text>
+                              <Text textAlign={"left"}>Ingredients:</Text>
+                              <OrderedList
+                                margin={{ base: "left", md: "auto" }}
+                                ml={{ base: "16%", md: "0px" }}
+                                textAlign={"left"}
+                              >
+                                {Syringes.ingredients.map((ingredient) => {
+                                  return (
+                                    <>
+                                      <li>{ingredient}</li>
+                                    </>
+                                  );
+                                })}
+                              </OrderedList>
+                            </Flex>
+                            <Flex
+                              flexDirection={"row"}
+                              alignItems={"center"}
+                              justifyContent="center"
+                            >
+                              <Table border={"1px"} w={"100px"}>
+                                <Tbody>
+                                  <Tr>
+                                    <MotionTd
+                                      whileHover={{ scale: 2 }}
+                                      border={"1px"}
+                                      padding={0}
+                                    >
+                                      {/* 1 miejsce */}
+                                      <Craft
+                                        source={Syringes.ingredients_texture[0]}
+                                      ></Craft>
+                                    </MotionTd>
+                                    <MotionTd
+                                      whileHover={{ scale: 2 }}
+                                      border={"1px"}
+                                      padding={0}
+                                    >
+                                      {/* 2 miejsce */}
+                                      <Craft
+                                        source={Syringes.ingredients_texture[1]}
+                                      ></Craft>
+                                    </MotionTd>
+                                    <MotionTd border={"1px"} padding={0}>
+                                      {/* 3 miejsce */}
+                                      <Craft
+                                        source={Syringes.ingredients_texture[2]}
+                                      ></Craft>
+                                    </MotionTd>
+                                  </Tr>
+                                  <Tr>
+                                    <MotionTd border={"1px"} padding={0}>
+                                      {/* 4 miejsce */}
+                                      <Craft
+                                        source={Syringes.ingredients_texture[3]}
+                                      ></Craft>
+                                    </MotionTd>
+                                    <MotionTd border={"1px"} padding={0}>
+                                      {/* 5 miejsce */}
+                                      <Craft
+                                        source={Syringes.ingredients_texture[4]}
+                                      ></Craft>
+                                    </MotionTd>
+                                    <MotionTd border={"1px"} padding={0}>
+                                      {/* 6 miejsce */}
+                                      <Craft
+                                        source={Syringes.ingredients_texture[5]}
+                                      ></Craft>
+                                    </MotionTd>
+                                  </Tr>
+                                  <Tr>
+                                    <MotionTd border={"1px"} padding={0}>
+                                      {/* 7 miejsce  */}
+                                      <Craft
+                                        source={Syringes.ingredients_texture[6]}
+                                      ></Craft>
+                                    </MotionTd>
+                                    <MotionTd border={"1px"} p={"0"}>
+                                      {/* 8 miejsce */}
+                                      <Craft
+                                        source={Syringes.ingredients_texture[7]}
+                                      ></Craft>
+                                    </MotionTd>
+                                    <MotionTd border={"1px"} padding={0}>
+                                      {/* 9 miejsce */}
+                                      <Craft
+                                        source={Syringes.ingredients_texture[8]}
+                                      ></Craft>
+                                    </MotionTd>
+                                  </Tr>
+                                </Tbody>
+                              </Table>
+                              <ArrowForwardIcon
+                                fontSize={"25px"}
+                                mr={"20px"}
+                                ml={"20px"}
+                              />
+                              <Table border={"1px"} w={"50px"} h={"50px"}>
+                                <Tbody>
+                                  <Tr>
+                                    <MotionTd
+                                      justifyContent={"center"}
+                                      alignItems={"center"}
+                                      padding={"0"}
+                                      borderColor="bg"
+                                    >
+                                      <Image
+                                        style={{ imageRendering: "pixelated" }}
+                                        alt={Syringes.icon}
+                                        w={"40px"}
+                                        src={Syringes.icon}
+                                        margin={"auto"}
+                                      />
+                                    </MotionTd>
+                                  </Tr>
+                                </Tbody>
+                              </Table>
+                            </Flex>
+                          </Flex>
+                        </Flex>
+                      </Flex>
+                    </TabPanel>
+                  </TabPanels>
+                </Tabs>
+              </motion.div>
+            </>
+          );
+        })
+      }
 
       <Links />
       <He
@@ -936,10 +982,8 @@ const Syringe = ({ delay = 0 }) => {
               >
                 Focus effect doubles your experience orb value, so you can exp more and faster. Available in focus syringe.
               </Flex>
-              <Flex mt={"10px"}>
-                <video width={'1000px'} height='400px' controls style={{ margin: 'auto', borderRadius: '7px' }}>
-                  <source src="mcfocus.mp4" />
-                </video>
+              <Flex minW={['350px', '450px', '600px']} maxW={'800px'} h={['210px', '250px', '315px']} mt={"10px"}>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/M3kVgBaSiWk" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
               </Flex>
             </Flex>
           </Flex>
@@ -971,7 +1015,7 @@ const Syringe = ({ delay = 0 }) => {
           </Box>
         </Flex>
       </motion.div>
-    </Ramki>
+    </Ramki >
   );
 };
 export default Syringe;

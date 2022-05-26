@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/layout";
+import { Badge, Flex } from "@chakra-ui/layout";
 import Link from "./Link";
 import { Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
@@ -12,7 +12,7 @@ const Modgura = () => {
 
   const router = useRouter();
   useEffect(() => {
-    if (router.pathname === "/squirting_syringe") {
+    if (router.pathname === "/utilities") {
       setVisible(false);
     }
   }, [router.pathname]);
@@ -26,13 +26,15 @@ const Modgura = () => {
             <Flex
               alignItems={"center"}
               w={"100%"}
-              bgGradient="linear(to-r, teal.600 20%, blue.600 100%)"
-              h={"35px"}
+              bgGradient="linear(to-r, purple.500 20%, blue.600 100%)"
+              minH={'35px'}
+              h={['auto', 'auto', '35px']}
               flexDir={"row"}
               zIndex={"999999999999"}
             >
-              <Link href={"/squirting_syringe"} m={"auto"} _hover={"none"}>
+              <Link href={"/utilities"} m={"auto"} _hover={"none"}>
                 <Flex
+                  p={["5px", "5px", "auto", "auto"]}
                   alignItems={"center"}
                   justifyContent={"center"}
                   margin={"auto"}
@@ -43,14 +45,15 @@ const Modgura = () => {
                     marginRight={"10px"}
                     fontSize={"13px"}
                   >
-                    Zobacz mod do Minecraft: Java edition!
+                    Zobacz nowy mod do Minecraft! <Badge variant={'subtle'} colorScheme='blue' >Supplementary Accessories</Badge>
                   </Text>
                   <Image
                     alt="heal syringe"
                     style={{ imageRendering: "pixelated" }}
                     width={size}
                     height={size}
-                    src="/healsyringe.png"
+                    src="utilitieslogo.png"
+                    rounded={'sm'}
                   ></Image>
                 </Flex>
               </Link>
