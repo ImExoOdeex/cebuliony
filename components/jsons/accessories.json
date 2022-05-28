@@ -132,7 +132,7 @@
   {
     "id": 11,
     "name": "Radar",
-    "info": "Shows current experience level and progress.",
+    "info": "Shows current brightess level at players head.",
     "duration": "endless",
     "rarity": "common",
     "attributes": "experience display",

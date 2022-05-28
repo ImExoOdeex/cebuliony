@@ -11,6 +11,8 @@ class MyDocument extends Document {
     render() {
         return (
             <Html lang='PL-pl'>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4203392968171424"
+                    crossOrigin="anonymous"></script>
                 <script async src="https://cdn.splitbee.io/sb.js"></script>
                 <Head />
                 <body>
